@@ -98,7 +98,7 @@ bool String::empty(){
 	}
 }
 
-void String::reserve(int n){
+void String::reserve(size_t n){
 	if(n>capacity_){
 		
 	}

@@ -45,7 +45,7 @@ public :
 	const char* c_str();
 	size_t capacity();
 	bool empty();
-	void reserve(int n);
+	void reserve(size_t n);
 
 protected :
   // =========================================================================
