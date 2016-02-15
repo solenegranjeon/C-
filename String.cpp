@@ -61,6 +61,10 @@ void String::clear(){
 	
 }
 
+const char* String::c_str(){
+	return tab_;
+}
+
 bool String::empty(){
 	if(size_==0){
 		return true;
