@@ -16,6 +16,7 @@ public :
 	String();
 	String(const String&);
 	String& operator=(const String&);
+  String(const char* str);
 
   // =========================================================================
   //                                Destructor
@@ -43,7 +44,7 @@ public :
 	const char* c_str();
 	int capacity();
 	bool empty();
-	void reserve();
+	void reserve(int n);
 
 protected :
   // =========================================================================
