@@ -104,12 +104,12 @@ void String::reserve(size_t n){
 			printf("Vous ne pouvez pas réserver plus de %d caractères",max_size_);
 		} else {
 			char* data= new char[n];
-			for(int i = 0; i<size_; i++){
+			for(size_t i = 0; i<size_; i++){
 				data[i] = tab_[i];
 			}
 			delete [] tab_;
 			tab_ = new char[n];
-			for(int i = 0; i<size_; i++){
+			for(size_t i = 0; i<size_; i++){
 				tab_[i] = data[i];
 			}
 			delete [] data;
