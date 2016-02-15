@@ -64,8 +64,7 @@ String& String::operator=(const String& str){
 	}
 }
 
-String& String::operator+(const String& a)
-{
+String& String::operator+(const String& str){
 	
 }
 
