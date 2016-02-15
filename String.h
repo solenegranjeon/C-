@@ -16,7 +16,7 @@ public :
 	String();
 	String(const String&);
 	String& operator=(const String&);
-	String& operator+(const String&);
+	String& operator+(const String& , const String&);
 	String(const char* str);
 
   // =========================================================================
@@ -42,6 +42,7 @@ public :
   // =========================================================================
 	size_t size() const;
 	size_t length() const;
+  size_t max_size() const;
 	void clear();
 	const char* c_str();
 	size_t capacity();

@@ -18,7 +18,7 @@ String::String() {
 
 	size_ = 0;
 	capacity_ = 0;
-	tab_ = new char[capacity_];
+	tab_ = new char[capacity_ + 1];
 	tab_[0] = '\0';
 }
 
@@ -26,15 +26,42 @@ String::String(const String& str){
 	
 	size_ = str.size_ ;
 	capacity_ = str.capacity_;
-	tab_ = new char[capacity_];
+	tab_ = new char[capacity_ + 1];
 	for(size_t i = 0; i<size_; i++){
 		tab_[i] = str.tab_[i];
 	}
 	
 }	
 
-
+// Replaces the contents with a copy of str. 
+// If *this and str are the same object, this function has no effect.
 String& String::operator=(const String& str){
+	
+	bool equal = true;
+	if(this->size_ != str.size_ or this->capacity_ != str.capacity_){
+		equal = false;
+	}
+	else{
+		int i = 0;
+		while(str.tab_[i]!= '\0'){
+			if(str.tab_[i]!=this->tab_[i]){
+				equal = false;
+			}
+			i++;
+		}
+	}
+	
+	if(equal==false){
+		size_ = str.size_;
+		capacity_ = str.capacity_;
+		tab_ = new char[capacity_ + 1];
+		for(size_t i = 0; i<size_; i++){
+			tab_[i] = str.tab_[i];
+		}
+	}
+	else{
+		printf("The two strings are already equal.\n");
+	}
 }
 
 String& String::operator+(const String& a, const String& b){
@@ -84,10 +111,13 @@ size_t String::length() const{
 	return size_;
 }
 
+size_t String::max_size() const{
+	return max_size_;
+}
+
 void String::clear(){
 	size_ = 0;
 	tab_[0] = '\0';
-	
 }
 
 const char* String::c_str(){
