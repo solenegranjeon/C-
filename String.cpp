@@ -51,7 +51,7 @@ int String::capacity(){
 	return capacity_;
 }
 
-int String::size(){
+const int String::size(){
 	return size_;
 }
 
