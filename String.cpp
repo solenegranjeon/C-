@@ -88,9 +88,21 @@ bool String::empty(){
 
 void String::reserve(int n){
 	if(n>capacity_){
-		
-	}
-	
+		if(n>max_size_){
+			printf("Vous ne pouvez pas réserver plus de %d caractères",max_size_);
+		} else {
+			char* data= new char[n];
+			for(int i = 0; i<size_; i++){
+				data[i] = tab_[i];
+			}
+			delete [] tab_;
+			tab_ = new char[n];
+			for(int i = 0; i<size_; i++){
+				tab_[i] = data[i];
+			}
+			delete [] data;
+		}
+	}	
 }
 
 // ===========================================================================
