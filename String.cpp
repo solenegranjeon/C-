@@ -18,7 +18,7 @@ String::String() {
 
 	size_ = 0;
 	capacity_ = 0;
-	tab_ = new char[capacity_];
+	tab_ = new char[capacity_ + 1];
 	tab_[0] = '\0';
 }
 
@@ -26,7 +26,7 @@ String::String(const String& str){
 	
 	size_ = str.size_ ;
 	capacity_ = str.capacity_;
-	tab_ = new char[capacity_];
+	tab_ = new char[capacity_ + 1];
 	for(size_t i = 0; i<size_; i++){
 		tab_[i] = str.tab_[i];
 	}
@@ -44,12 +44,12 @@ String::String(const char* str){
     sizeCount ++;
   }
   
-	size_ = sizeCount ;
-	capacity_ = sizeCount ;
-	tab_ = new char[capacity_ + 1];
-	for(size_t i = 0; i<=size_; i++){
-		tab_[i] = str[i];
-	}	
+  size_ = sizeCount ;
+  capacity_ = sizeCount ;
+  tab_ = new char[capacity_ + 1];
+  for(size_t i = 0; i<=size_; i++){
+    tab_[i] = str[i];
+  }	
 }	
 
 
@@ -59,7 +59,7 @@ String::String(const char* str){
 String::~String() {
 	delete [] tab_;
 	tab_ = nullptr;
-	printf("Protocol order 62 executed : String no longer operational \n");
+	printf("Protocol order 62 executed : String no longer operational. \n");
 }
 
 // ===========================================================================
@@ -107,13 +107,13 @@ void String::reserve(size_t n){
 			printf("Vous ne pouvez pas réserver plus de %d caractères \n",(int)(max_size_));
 		} else {
 			char* data= new char[n];
-			for(size_t i = 0; i<size_; i++){
+			for(size_t i = 0; i<size_ + 1; i++){
 				data[i] = tab_[i];
 			}
 			delete [] tab_;
 			tab_ = new char[n];
 			capacity_=n;
-			for(size_t i = 0; i<size_; i++){
+			for(size_t i = 0; i<size_ + 1; i++){
 				tab_[i] = data[i];
 			}
 			delete [] data;
