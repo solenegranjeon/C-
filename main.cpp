@@ -33,7 +33,7 @@ int main() {
 
 
   String C = String("I'm not crazy, my mother had me tested!");
-  printf("The size of C = %d \n",C.size());
+  printf("The size of C = %d \n",int(C.size()));
 
   return 0;
 }
