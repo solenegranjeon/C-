@@ -16,10 +16,10 @@ const int String::max_size_=100;
 // ===========================================================================
 String::String() {
 
-	tab_=nullptr;
-	size_=0;
-	capacity_=0;
-	
+	size_ = 0;
+	capacity_ = 1;
+	tab_ = new char[capacity_];
+	tab_[0] = '\0';
 }
 
 String::String(const String& str){
@@ -60,19 +60,21 @@ String::~String() {
 // ===========================================================================
 
 int String::capacity(){
-	return capacity_;
+	return capacity_ - 1;
 }
 
-int String::size(){
+const int String::size(){
 	return size_;
 }
 
 void String::clear(){
 	size_ = 0;
-	capacity_=0;
-	delete [] tab_;
-	tab_ = nullptr;
+	tab_[0] = '\0';
 	
+}
+
+const char* String::c_str(){
+	return tab_;
 }
 
 bool String::empty(){
@@ -82,6 +84,11 @@ bool String::empty(){
 	else {
 		return false;
 	}
+}
+
+void String::reserve(){
+	
+	
 }
 
 // ===========================================================================
