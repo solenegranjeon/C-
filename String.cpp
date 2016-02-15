@@ -6,6 +6,8 @@
 #include <cstdlib>
 #include "String.h"
 
+static const int max_size_ = 100;	
+
 // ===========================================================================
 //                       Definition of static attributes
 // ===========================================================================
@@ -18,6 +20,11 @@ String::String() {
 
 }
 
+String::String(const String& s){
+	//char* tab_;
+	size_ = s.size_ ;
+	capacity_ = s.capacity_;
+}
 	
 
 
