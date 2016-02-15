@@ -42,7 +42,7 @@ public :
 	const char* c_str();
 	int capacity();
 	bool empty();
-	void reserve();
+	void reserve(int n);
 
 protected :
   // =========================================================================

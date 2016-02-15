@@ -74,8 +74,10 @@ bool String::empty(){
 	}
 }
 
-void String::reserve(){
-	
+void String::reserve(int n){
+	if(n>capacity_){
+		
+	}
 	
 }
 
