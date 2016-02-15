@@ -16,7 +16,7 @@ public :
 	String();
 	String(const String&);
 	String& operator=(const String&);
-	String& operator+(const String& , const String&);
+	String& operator+(const String& );
 	String(const char* str);
 
   // =========================================================================
