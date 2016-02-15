@@ -71,11 +71,11 @@ size_t String::capacity(){
 	return capacity_;
 }
 
-const size_t String::size(){
+size_t String::size() const{
 	return size_;
 }
 
-const size_t String::length(){
+size_t String::length() const{
 	return size_;
 }
 
