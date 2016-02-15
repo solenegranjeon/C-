@@ -5,10 +5,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-
 #include "String.h"
-
-//~ using namespace std;
 
 
 // ===========================================================================
@@ -24,6 +21,13 @@ int main() {
   printf("Hello world !\n");
   
   String A = String();
+  if(A.empty()){
+	  printf("I'm empty \n");
+  } else { 
+	  printf("I'm not empty \n");
+  }
+  
+  //~ String B = String(A);
 
 
   return 0;

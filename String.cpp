@@ -48,6 +48,14 @@ int String::capacity(){
 	return capacity_;
 }
 
+bool String::empty(){
+	if(size_==0){
+		return true;
+	} else {
+		return false;
+	}
+}
+
 // ===========================================================================
 //                              Protected Methods
 // ===========================================================================
