@@ -46,11 +46,10 @@ String::String(const char* str){
   
 	size_ = sizeCount ;
 	capacity_ = sizeCount ;
-	tab_ = new char[capacity_];
-	for(size_t i = 0; i<size_; i++){
+	tab_ = new char[capacity_ + 1];
+	for(size_t i = 0; i<=size_; i++){
 		tab_[i] = str[i];
-	}
-	
+	}	
 }	
 
 
