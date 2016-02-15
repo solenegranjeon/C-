@@ -40,9 +40,10 @@ public :
   //                              Public Methods
   // =========================================================================
 	const size_t size();
+  const size_t length();
 	void clear();
 	const char* c_str();
-	int capacity();
+	size_t capacity();
 	bool empty();
 	void reserve(int n);
 

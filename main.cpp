@@ -31,5 +31,9 @@ int main() {
   //~ String B = String(A);
 
 
+
+  String C = String("I'm not crazy, my mother had me tested!");
+  printf("The size of C = %d \n",C.size());
+
   return 0;
 }
