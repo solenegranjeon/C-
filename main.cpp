@@ -33,6 +33,7 @@ int main() {
   String C1 = String("I'm not crazy, my mother had me tested!"
     "I'm not crazy, my mother had me tested!"
     "I'm not crazy, my mother had me tested!");
+    
   String C = String("I'm not crazy, my mother had me tested!");
   printf("The size of C = %d \n",int(C.size()));
 
