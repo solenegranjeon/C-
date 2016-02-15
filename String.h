@@ -39,8 +39,8 @@ public :
   // =========================================================================
   //                              Public Methods
   // =========================================================================
-	const size_t size();
-  const size_t length();
+	size_t size() const;
+  size_t length() const;
 	void clear();
 	const char* c_str();
 	size_t capacity();
