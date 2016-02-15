@@ -14,8 +14,8 @@ A. Cathignol - S. Granjeon - A. Weber
 
 - Class String: String.cpp String.h
 Constructors:
-  Default
-  Copy
-  C-string (Copies the null-terminated character sequence (C-string) pointed by s)
+  - Default
+  - Copy
+  - C-string (Copies the null-terminated character sequence (C-string) pointed by s)
 
 Destructor
