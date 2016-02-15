@@ -21,6 +21,7 @@ int main() {
   printf("Hello world !\n");
   
   String A = String();
+  
   if(A.empty()){
 	  printf("I'm empty \n");
   } else { 
