@@ -46,5 +46,14 @@ int main() {
   C.reserve(42);
   printf("The capacity of C = %d \n",int(C.capacity()));
 
+  String E = String("Hello ");
+  String F = String("World");
+  
+  E+F;
+  
+  printf("The size of E = %d \n",int(E.size()));
+  printf("The capacity of E = %d \n",int(E.capacity()));
+  
+  
   return 0;
 }
