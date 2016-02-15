@@ -51,8 +51,16 @@ int String::capacity(){
 	return capacity_-1;
 }
 
-int String::size(){
+const int String::size(){
 	return size_;
+}
+
+void String::clear(){
+	size_ = 0;
+	capacity_=0;
+	delete [] tab_;
+	tab_ = nullptr;
+	
 }
 
 bool String::empty(){
