@@ -6,18 +6,29 @@
 #include <cstdlib>
 #include "String.h"
 
+static const int max_size_ = 100;	
+
 // ===========================================================================
 //                       Definition of static attributes
 // ===========================================================================
 
+const int String::max_size_=100;
 // ===========================================================================
 //                                Constructors
 // ===========================================================================
 String::String() {
 
-
+	tab_=nullptr;
+	size_=0;
+	capacity_=0;
+	
 }
 
+String::String(const String& s){
+	//char* tab_;
+	size_ = s.size_ ;
+	capacity_ = s.capacity_;
+}
 	
 
 
@@ -25,13 +36,17 @@ String::String() {
 //                                 Destructor
 // ===========================================================================
 String::~String() {
-
-	
+	delete [] tab_;
+	printf("Protocol order 62 executed : String no longer operational \n");
 }
 
 // ===========================================================================
 //                               Public Methods
 // ===========================================================================
+
+int String::capacity(){
+	return capacity_;
+}
 
 // ===========================================================================
 //                              Protected Methods

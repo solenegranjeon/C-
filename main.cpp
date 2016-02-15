@@ -23,6 +23,7 @@ int main() {
   
   printf("Hello world !\n");
   
+  String A = String();
 
 
   return 0;
