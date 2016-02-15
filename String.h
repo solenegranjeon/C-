@@ -16,7 +16,7 @@ public :
 	String();
 	String(const String&);
 	String& operator=(const String&);
-  String(const char* str);
+	String(const char* str);
 
   // =========================================================================
   //                                Destructor
@@ -40,7 +40,7 @@ public :
   //                              Public Methods
   // =========================================================================
 	size_t size() const;
-  size_t length() const;
+	size_t length() const;
 	void clear();
 	const char* c_str();
 	size_t capacity();

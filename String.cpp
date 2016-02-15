@@ -100,7 +100,7 @@ bool String::empty(){
 void String::reserve(size_t n){
 	if(n>capacity_){
 		if(n>max_size_){
-			printf("Vous ne pouvez pas réserver plus de %d caractères",max_size_);
+			printf("Vous ne pouvez pas réserver plus de %d caractères",(int)(max_size_));
 		} else {
 			char* data= new char[n];
 			for(size_t i = 0; i<size_; i++){
