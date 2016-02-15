@@ -6,8 +6,6 @@
 #include <cstdlib>
 #include "String.h"
 
-static const int max_size_ = 100;	
-
 // ===========================================================================
 //                       Definition of static attributes
 // ===========================================================================
@@ -24,10 +22,13 @@ String::String() {
 	
 }
 
-String::String(const String& s){
-	//char* tab_;
-	size_ = s.size_ ;
-	capacity_ = s.capacity_;
+String::String(const String& str){
+	size_ = str.size_ ;
+	capacity_ = str.capacity_;
+	tab_ = new char[capacity_];
+	for(int i = 0; i<size_; i++){
+		tab_[i] = str.tab_[i];
+	}
 }
 	
 
@@ -37,6 +38,7 @@ String::String(const String& s){
 // ===========================================================================
 String::~String() {
 	delete [] tab_;
+	tab_ = nullptr;
 	printf("Protocol order 62 executed : String no longer operational \n");
 }
 
