@@ -10,7 +10,7 @@
 //                       Definition of static attributes
 // ===========================================================================
 
-const int String::max_size_=100;
+const size_t String::max_size_=100;
 // ===========================================================================
 //                                Constructors
 // ===========================================================================
@@ -27,7 +27,7 @@ String::String(const String& str){
 	size_ = str.size_ ;
 	capacity_ = str.capacity_;
 	tab_ = new char[capacity_];
-	for(int i = 0; i<size_; i++){
+	for(size_t i = 0; i<size_; i++){
 		tab_[i] = str.tab_[i];
 	}
 	
