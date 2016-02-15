@@ -39,11 +39,16 @@ String& String::operator=(const String& str){
 
 String::String(const char* str){
   
-	size_ = (str).size_ ;
-	capacity_ = (str).capacity_;
+  size_t sizeCount = 0;
+  for (size_t i = 0 ; str[i] != '\0' ; i++){
+    sizeCount ++;
+  }
+  
+	size_ = sizeCount ;
+	capacity_ = sizeCount ;
 	tab_ = new char[capacity_];
-	for(int i = 0; i<size_; i++){
-		tab_[i] = str.tab_[i];
+	for(size_t i = 0; i<size_; i++){
+		tab_[i] = str[i];
 	}
 	
 }	
@@ -62,11 +67,15 @@ String::~String() {
 //                               Public Methods
 // ===========================================================================
 
-int String::capacity(){
+size_t String::capacity(){
 	return capacity_;
 }
 
-const int String::size(){
+const size_t String::size(){
+	return size_;
+}
+
+const size_t String::length(){
 	return size_;
 }
 
@@ -89,7 +98,7 @@ bool String::empty(){
 	}
 }
 
-void String::reserve(int n){
+void String::reserve(size_t n){
 	if(n>capacity_){
 		if(n>max_size_){
 			printf("Vous ne pouvez pas réserver plus de %d caractères",max_size_);
