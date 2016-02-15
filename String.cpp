@@ -85,12 +85,23 @@ String::String(const char* str){
     sizeCount ++;
   }
   
-  size_ = sizeCount ;
-  capacity_ = sizeCount ;
-  tab_ = new char[capacity_ + 1];
-  for(size_t i = 0; i<=size_; i++){
-    tab_[i] = str[i];
-  }	
+  if (sizeCount <= max_size_){
+    size_ = sizeCount ;
+    capacity_ = sizeCount ;
+    tab_ = new char[capacity_ + 1];
+    for(size_t i = 0; i<=size_; i++){
+      tab_[i] = str[i];
+    }	
+  }
+  
+  else {
+    printf("The string you want to put is too long for me, I can't "
+      "handle it. So I created a new string with values by default.\n");
+    size_ = 0;
+    capacity_ = 0;
+    tab_ = new char[capacity_+1];
+    tab_[0] = '\0';
+  }
 }	
 
 
