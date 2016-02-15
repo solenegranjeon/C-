@@ -34,6 +34,18 @@ String::String(const String& str){
 }	
 
 
+String::String(const char* str){
+  
+	size_ = str.size_ ;
+	capacity_ = str.capacity_;
+	tab_ = new char[capacity_];
+	for(int i = 0; i<size_; i++){
+		tab_[i] = str.tab_[i];
+	}
+	
+}	
+
+
 // ===========================================================================
 //                                 Destructor
 // ===========================================================================
