@@ -62,10 +62,20 @@ String& String::operator=(const String& str){
 	else{
 		printf("The two strings are already equal.\n");
 	}
+	return *this;
 }
 
 String& String::operator+(const String& str){
-	
+	size_t sizeTemp=str.size();
+	if(size_+sizeTemp>capacity_){
+		reserve(size_+sizeTemp+1);
+	}
+	for(size_t i=size_;i<size_+sizeTemp;i++){
+		tab_[i]=str.tab_[i];		
+	}
+	size_+=sizeTemp;
+	tab_[size_+1]='\0';
+	return *this;
 }
 
 String::String(const char* str){
