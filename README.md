@@ -19,3 +19,5 @@ Constructors:
   - C-string (Copies the null-terminated character sequence (C-string) pointed by s)
 
 Destructor
+
+- Clear : Removes all characters from the string as if by executing erase(begin(), end()). The allocated memory will not be released, effectively leaving the capacity of the string unchanged.
