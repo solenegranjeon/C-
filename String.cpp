@@ -40,6 +40,7 @@ String::String(const String& str){
 // ===========================================================================
 String::~String() {
 	delete [] tab_;
+	tab_ = nullptr;
 	printf("Protocol order 62 executed : String no longer operational \n");
 }
 
