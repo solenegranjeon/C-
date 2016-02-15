@@ -10,14 +10,14 @@
 //                       Definition of static attributes
 // ===========================================================================
 
-const int String::max_size_=100;
+const size_t String::max_size_=100;
 // ===========================================================================
 //                                Constructors
 // ===========================================================================
 String::String() {
 
 	size_ = 0;
-	capacity_ = 1;
+	capacity_ = 0;
 	tab_ = new char[capacity_];
 	tab_[0] = '\0';
 }
@@ -27,12 +27,15 @@ String::String(const String& str){
 	size_ = str.size_ ;
 	capacity_ = str.capacity_;
 	tab_ = new char[capacity_];
-	for(int i = 0; i<size_; i++){
+	for(size_t i = 0; i<size_; i++){
 		tab_[i] = str.tab_[i];
 	}
 	
 }	
 
+
+String& String::operator=(const String& str){
+}
 
 String::String(const char* str){
   
@@ -60,7 +63,7 @@ String::~String() {
 // ===========================================================================
 
 int String::capacity(){
-	return capacity_ - 1;
+	return capacity_;
 }
 
 const int String::size(){
@@ -107,4 +110,8 @@ void String::reserve(int n){
 
 // ===========================================================================
 //                              Protected Methods
+// ===========================================================================
+
+// ===========================================================================
+//                              External Methods
 // ===========================================================================
