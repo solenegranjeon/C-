@@ -8,4 +8,8 @@ A. Cathignol - S. Granjeon - A. Weber
 
 ======== To do: ===========
 
-- Class String:
+- Makefile:
+
+- Main.cpp:
+
+- Class String: String.cpp String.h
