@@ -1,3 +1,11 @@
 # StringTPNote
+---------------------------------------------------------------------
+             Implementation of a String Class    
+---------------------------------------------------------------------
 
-TO DO !!!!
+For the project of C++ in 3BIM, INSA-LYON, 2015-2016
+A. Cathignol - S. Granjeon - A. Weber
+
+======== To do: ===========
+
+- Class String:
