@@ -29,8 +29,7 @@ String::String(const String& str){
 	for(int i = 0; i<size_; i++){
 		tab_[i] = str.tab_[i];
 	}
-}
-	
+}	
 
 
 // ===========================================================================
@@ -48,6 +47,10 @@ String::~String() {
 
 int String::capacity(){
 	return capacity_;
+}
+
+int String::size(){
+	return size_;
 }
 
 // ===========================================================================
