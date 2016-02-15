@@ -62,6 +62,7 @@ String& String::operator=(const String& str){
 	else{
 		printf("The two strings are already equal.\n");
 	}
+	return *this;
 }
 
 String::String(const char* str){
