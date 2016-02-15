@@ -78,6 +78,10 @@ size_t String::length() const{
 	return size_;
 }
 
+size_t String::max_size() const{
+	return max_size_;
+}
+
 void String::clear(){
 	size_ = 0;
 	tab_[0] = '\0';

@@ -41,6 +41,7 @@ public :
   // =========================================================================
 	size_t size() const;
 	size_t length() const;
+  size_t max_size() const;
 	void clear();
 	const char* c_str();
 	size_t capacity();
