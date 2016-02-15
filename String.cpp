@@ -23,12 +23,14 @@ String::String() {
 }
 
 String::String(const String& str){
+	
 	size_ = str.size_ ;
 	capacity_ = str.capacity_;
 	tab_ = new char[capacity_];
 	for(int i = 0; i<size_; i++){
 		tab_[i] = str.tab_[i];
 	}
+	
 }	
 
 
@@ -51,6 +53,15 @@ int String::capacity(){
 
 int String::size(){
 	return size_;
+}
+
+bool String::empty(){
+	if(size_==0){
+		return true;
+	} 
+	else {
+		return false;
+	}
 }
 
 // ===========================================================================
