@@ -55,6 +55,14 @@ int String::size(){
 	return size_;
 }
 
+void String::clear(){
+	size_ = 0;
+	capacity_=0;
+	delete [] tab_;
+	tab_ = nullptr;
+	
+}
+
 bool String::empty(){
 	if(size_==0){
 		return true;

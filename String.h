@@ -38,6 +38,7 @@ public :
   //                              Public Methods
   // =========================================================================
 	int size();
+	void clear();
 	int capacity();
 	bool empty();
 	
