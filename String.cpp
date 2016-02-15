@@ -66,8 +66,6 @@ String& String::operator=(const String& str){
 
 String& String::operator+(const String& a)
 {
-	size_t sa=a.size();
-	size_t sb=b.size();
 	
 }
 
