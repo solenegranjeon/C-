@@ -17,7 +17,7 @@ const size_t String::max_size_=100;
 String::String() {
 
 	size_ = 0;
-	capacity_ = 1;
+	capacity_ = 0;
 	tab_ = new char[capacity_];
 	tab_[0] = '\0';
 }
@@ -33,6 +33,9 @@ String::String(const String& str){
 	
 }	
 
+
+String& String::operator=(const String& str){
+}
 
 String::String(const char* str){
   
@@ -65,7 +68,7 @@ String::~String() {
 // ===========================================================================
 
 size_t String::capacity(){
-	return capacity_ - 1;
+	return capacity_;
 }
 
 const size_t String::size(){
@@ -95,8 +98,10 @@ bool String::empty(){
 	}
 }
 
-void String::reserve(){
-	
+void String::reserve(int n){
+	if(n>capacity_){
+		
+	}
 	
 }
 

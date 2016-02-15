@@ -15,6 +15,7 @@ public :
   // =========================================================================
 	String();
 	String(const String&);
+	String& operator=(const String&);
   String(const char* str);
 
   // =========================================================================
@@ -44,7 +45,7 @@ public :
 	const char* c_str();
 	size_t capacity();
 	bool empty();
-	void reserve();
+	void reserve(int n);
 
 protected :
   // =========================================================================
