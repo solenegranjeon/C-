@@ -38,10 +38,11 @@ public :
   // =========================================================================
   //                              Public Methods
   // =========================================================================
-	const int size();
+	const size_t size();
+  const size_t length();
 	void clear();
 	const char* c_str();
-	int capacity();
+	size_t capacity();
 	bool empty();
 	void reserve();
 
@@ -54,9 +55,9 @@ protected :
   //                                Attributes
   // =========================================================================
 	char* tab_;
-	int size_;  //doesn't include de \0
-	int capacity_;  //includes de \0
-	static const int max_size_;	
+	size_t size_;  //doesn't include de \0
+	size_t capacity_;  //includes de \0
+	static const size_t max_size_;	
 
 // ===========================================================================
 //                            Getters' definitions
