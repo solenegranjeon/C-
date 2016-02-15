@@ -9,7 +9,7 @@ main.o: main.cpp String.o
 	
 
 String.o: String.cpp String.h
-	g++ -c String.cpp -o String.o --std=c++11 -g
+	g++ -c String.cpp -Wall -o String.o --std=c++11 -g
 		
 clean:
 	rm -f *.o
