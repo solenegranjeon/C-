@@ -37,6 +37,12 @@ String::String(const String& str){
 String& String::operator=(const String& str){
 }
 
+String& String::operator+(const String& a, const String& b){
+	size_t sa=a.size();
+	size_t sb=b.size();
+	
+}
+
 String::String(const char* str){
   
   size_t sizeCount = 0;
@@ -100,7 +106,8 @@ bool String::empty(){
 void String::reserve(size_t n){
 	if(n>capacity_){
 		if(n>max_size_){
-			printf("Vous ne pouvez pas réserver plus de %d caractères \n",(int)(max_size_));
+			printf("You aren't allowed to reserve more than %d "
+				"characters. \n",(int)(max_size_));
 		} else {
 			char* data= new char[n];
 			for(size_t i = 0; i<size_; i++){
@@ -114,7 +121,7 @@ void String::reserve(size_t n){
 			}
 			delete [] data;
 		}
-	}	
+	} 	
 }
 
 // ===========================================================================

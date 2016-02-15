@@ -33,6 +33,7 @@ int main() {
 
   String C = String("I'm not crazy, my mother had me tested!");
   printf("The size of C = %d \n",int(C.size()));
+  
   C.reserve(102);
   printf("The capacity of C = %d \n",int(C.capacity()));
   C.reserve(42);
