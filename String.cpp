@@ -76,8 +76,7 @@ String::String(const char* str){
 	tab_ = new char[capacity_ + 1];
 	for(size_t i = 0; i<=size_; i++){
 		tab_[i] = str[i];
-	}
-	
+	}	
 }	
 
 
@@ -106,6 +105,10 @@ size_t String::length() const{
 	return size_;
 }
 
+size_t String::max_size() const{
+	return max_size_;
+}
+
 void String::clear(){
 	size_ = 0;
 	tab_[0] = '\0';
@@ -127,7 +130,7 @@ bool String::empty(){
 void String::reserve(size_t n){
 	if(n>capacity_){
 		if(n>max_size_){
-			printf("Vous ne pouvez pas réserver plus de %d caractères",int(max_size_));
+			printf("Vous ne pouvez pas réserver plus de %d caractères \n",(int)(max_size_));
 		} else {
 			char* data= new char[n];
 			for(size_t i = 0; i<size_; i++){
@@ -135,6 +138,7 @@ void String::reserve(size_t n){
 			}
 			delete [] tab_;
 			tab_ = new char[n];
+			capacity_=n;
 			for(size_t i = 0; i<size_; i++){
 				tab_[i] = data[i];
 			}
