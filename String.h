@@ -48,6 +48,8 @@ public :
 	size_t capacity();
 	bool empty();
 	void reserve(size_t n);
+  void resize (size_t n);
+  void resize (size_t n, char c);
 
 protected :
   // =========================================================================

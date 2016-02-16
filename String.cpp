@@ -173,6 +173,17 @@ void String::reserve(size_t n){
 	} 	
 }
 
+void resize (size_t n){
+  size_t i=n;
+}
+
+void resize (size_t n, char c){
+  size_t i=n;
+  char x=c;
+}
+
+
+
 // ===========================================================================
 //                              Protected Methods
 // ===========================================================================
