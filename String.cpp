@@ -163,7 +163,7 @@ void String::reserve(size_t n){
 				data[i] = tab_[i];
 			}
 			delete [] tab_;
-			tab_ = new char[n];
+			tab_ = new char[n]; // Attention, je dirais que c'est +1
 			capacity_=n;
 			for(size_t i = 0; i<size_ + 1; i++){
 				tab_[i] = data[i];
@@ -173,13 +173,47 @@ void String::reserve(size_t n){
 	} 	
 }
 
-void resize (size_t n){
-  size_t i=n;
+void String::resize (size_t n){
+  if (n > max_size_){
+		printf("You aren't allowed to resize your string with more than %d "//to or with?
+		"characters. \n",int(max_size_));
+  }
+  else if (n < (size_-1)){
+    size_= n;
+    tab_[size_] = '\0'; //Is it ok for you if I let the \0 of the
+    // previous form? or do I have to remove it?
+  }
+  else if (n == size_){
+    printf("You already have a string with %d "
+    "characters. Try resizing with another size.\n",int(size_));
+  }
+  else {
+    char* table = new char[n+1];
+		for (size_t i = 0; i < size_ ; i++){
+      table[i] = tab_[i];
+    }
+    delete [] tab_;
+
+    capacity_ = n;
+		tab_ = new char[capacity_+1];
+    
+    for(size_t i = 0; i < size_; i++){
+      tab_[i] = table[i];
+		}
+		delete [] table;
+    
+    for(size_t i = size_; i < (capacity_+1); i++){
+      tab_[i] = '/';
+		}
+    size_ = n;
+    printf("You didn't specify the type of character you wanted, so I "
+    "added: / to extend your string to the size you chose.\n");
+  }
+  
 }
 
-void resize (size_t n, char c){
-  size_t i=n;
-  char x=c;
+void String::resize (size_t n, char c){
+
 }
 
 
