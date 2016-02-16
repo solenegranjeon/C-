@@ -33,7 +33,11 @@ int main() {
   String C1 = String("I'm not crazy, my mother had me tested!"
     "I'm not crazy, my mother had me tested!"
     "I'm not crazy, my mother had me tested!");
-    
+  
+  C1.resize(25);
+  printf("%d,%d",int(C1.size()),int(C1.capacity())); // I've got a 
+  // problem , it doesn't print the right capacity !!!! To see...
+  
   String C = String("I'm not crazy, my mother had me tested!");
   printf("The size of C = %d \n",int(C.size()));
 
@@ -45,6 +49,7 @@ int main() {
   
   C.reserve(42);
   printf("The capacity of C = %d \n",int(C.capacity()));
+  
 
   String E = String("Hello ");
   String F = String("World");
