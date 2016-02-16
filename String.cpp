@@ -213,7 +213,39 @@ void String::resize (size_t n){
 }
 
 void String::resize (size_t n, char c){
+  if (n > max_size_){
+		printf("You aren't allowed to resize your string with more than %d "//to or with?
+		"characters. \n",int(max_size_));
+  }
+  else if (n < (size_-1)){
+    size_= n;
+    tab_[size_] = '\0'; //Is it ok for you if I let the \0 of the
+    // previous form? or do I have to remove it?
+  }
+  else if (n == size_){
+    printf("You already have a string with %d "
+    "characters. Try resizing with another size.\n",int(size_));
+  }
+  else {
+    char* table = new char[n+1];
+		for (size_t i = 0; i < size_ ; i++){
+      table[i] = tab_[i];
+    }
+    delete [] tab_;
 
+    capacity_ = n;
+		tab_ = new char[capacity_+1];
+    
+    for(size_t i = 0; i < size_; i++){
+      tab_[i] = table[i];
+		}
+		delete [] table;
+    
+    for(size_t i = size_; i < (capacity_+1); i++){
+      tab_[i] = c;
+		}
+    size_ = n;
+  }
 }
 
 
