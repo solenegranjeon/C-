@@ -72,7 +72,26 @@ String::String(const char* str){
 // Replaces the contents with a copy of str. 
 // If *this and str are the same object, this function has no effect.
 String& String::operator=(char c){
-	
+  
+	bool equal = false;
+	if(tab_[0] == c){
+    if (size_ == 1 && capacity_ == 1){
+      equal = true;
+    }
+    else{
+      this->resize(1);
+      capacity_ = 1;
+    }
+	}
+	else{
+    this->resize(1);
+    capacity_ = 1;
+    tab_[0] = c;
+  }
+  
+	if (equal == true){
+		printf("The two strings are already equal.\n");
+	}
   
 	return *this;
 }
@@ -98,13 +117,13 @@ String& String::operator=(const String& str){
 	if(equal==false){
 		size_ = str.size_;
 		capacity_ = str.capacity_;
-		tab_ = new char[capacity_ + 1];
+		tab_ = new char[capacity_ + 1];// Careful! did you delete  the old tab_ before? I do not see it
 		for(size_t i = 0; i<size_; i++){
 			tab_[i] = str.tab_[i];
 		}
 	}
 	else{
-		printf("The two strings are already equal.\n");
+		printf("The two strings are already equal.\n"); 
 	}
 	return *this;
 }
