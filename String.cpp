@@ -185,7 +185,7 @@ void String::reserve(size_t n){
 				data[i] = tab_[i];
 			}
 			delete [] tab_;
-			tab_ = new char[n]; // Attention, je dirais que c'est +1
+			tab_ = new char[+1]; // Carefull!!!! , I put  +1 , is it good?
 			capacity_=n;
 			for(size_t i = 0; i<size_ + 1; i++){
 				tab_[i] = data[i];
