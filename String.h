@@ -49,7 +49,7 @@ class String {
 		// =========================================================================
 		
 		//~ String& operator+(const String& ); //Non il ne faut pas modifier les élements
-    friend String operator+(const String& slhs,const char* srhs);
+    friend String operator+(const String& ,const char* );
 		friend String operator+(const String&, char);
 	 
 		// =========================================================================

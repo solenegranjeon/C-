@@ -69,6 +69,8 @@ String::String(const char* str){
   }
 }		
 
+// Replaces the contents with a copy of str. 
+// If *this and str are the same object, this function has no effect.
 String& String::operator=(char c){
 	
   
