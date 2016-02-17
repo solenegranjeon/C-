@@ -186,12 +186,12 @@ void String::reserve(size_t n){
 			printf("You aren't allowed to reserve more than %d "
 				"characters. \n",(int)(max_size_));
 		} else {
-			char* data= new char[n];
+			char* data= new char[n+1];
 			for(size_t i = 0; i<size_ + 1; i++){
 				data[i] = tab_[i];
 			}
 			delete [] tab_;
-			tab_ = new char[+1]; // Carefull!!!! , I put  +1 , is it good?
+			tab_ = new char[n+1]; // Carefull!!!! , I put  +1 , is it good?
 			capacity_=n;
 			for(size_t i = 0; i<size_ + 1; i++){
 				tab_[i] = data[i];
@@ -212,9 +212,9 @@ void String::resize (size_t n){
 
   if (n > max_size_){
 		printf("You aren't allowed to resize your string with more than %d "//to or with?
-		"characters. \n",int(max_size_));
+		"characters. Try again.\n",int(max_size_));
   }
-  else if (n < (size_-1)){
+  else if (n < (size_)){
     size_= n;
     tab_[size_] = '\0';
   }
@@ -223,26 +223,15 @@ void String::resize (size_t n){
     "characters. Try resizing with another size.\n",int(size_));
   }
   else {
-    char* table = new char[n+1];
-		for (size_t i = 0; i < size_ ; i++){
-      table[i] = tab_[i];
-    }
-    delete [] tab_;
-
-    capacity_ = n;
-		tab_ = new char[capacity_+1];
-    
-    for(size_t i = 0; i < size_; i++){
-      tab_[i] = table[i];
-		}
-		delete [] table;
+    this->reserve(n);
     
     for(size_t i = size_; i < (capacity_+1); i++){
       tab_[i] = '/';
 		}
     size_ = n;
+    tab_[size_+1] = '\0';
     printf("You didn't specify the type of character you wanted, so I "
-    "added: / to extend your string to the size you chose.\n");
+    "added: '/' to extend your string to the size you chose.\n");
   }
   
 }
@@ -269,24 +258,13 @@ void String::resize (size_t n, char c){
     "characters. Try resizing with another size.\n",int(size_));
   }
   else {
-    char* table = new char[n+1];
-		for (size_t i = 0; i < size_ ; i++){
-      table[i] = tab_[i];
-    }
-    delete [] tab_;
+    this->reserve(n);
 
-    capacity_ = n;
-		tab_ = new char[capacity_+1];
-    
-    for(size_t i = 0; i < size_; i++){
-      tab_[i] = table[i];
-		}
-		delete [] table;
-    
     for(size_t i = size_; i < (capacity_+1); i++){
       tab_[i] = c;
 		}
     size_ = n;
+    tab_[size_+1] = '\0';
   }
 }
 

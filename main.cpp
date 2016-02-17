@@ -30,13 +30,26 @@ int main() {
   
   String B = String(A);
 
+//======================================================================
+//                Testing the Constructor c-string
+//                And testing the resize method
+//======================================================================
+
   String C1 = String("I'm not crazy, my mother had me tested!"
     "I'm not crazy, my mother had me tested!"
     "I'm not crazy, my mother had me tested!");
   
+  C1.resize(105);
+  printf("Resizing to 105 : \n size C1 = %d, capacity C1 = %d"
+  "\n",int(C1.size()),int(C1.capacity()));
+  
+  C1.resize(40);
+  printf("Resizing to 40 : \n size C1 = %d, capacity C1 = %d"
+  "\n",int(C1.size()),int(C1.capacity()));
+
   C1.resize(25);
-  printf("%d,%d",int(C1.size()),int(C1.capacity())); // I've got a 
-  // problem , it doesn't print the right capacity !!!! To see...
+  printf("Resizing to 25 : \n size C1 = %d, capacity C1 = %d"
+  "\n\n",int(C1.size()),int(C1.capacity()));
   
   String C = String("I'm not crazy, my mother had me tested!");
   printf("The size of C = %d \n",int(C.size()));
