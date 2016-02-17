@@ -247,7 +247,7 @@ void String::resize (size_t n, char c){
 
   if (n > max_size_){
 		printf("You aren't allowed to resize your string with more than %d "//to or with?
-		"characters. \n",int(max_size_));
+		"characters. Try again.\n",int(max_size_));
   }
   else if (n < (size_-1)){
     size_= n;
