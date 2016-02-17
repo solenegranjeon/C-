@@ -162,7 +162,8 @@ void String::clear(){
 	tab_[0] = '\0';
 }
 
-
+// Test if string is empty
+// This will not modify anything, returning only True or False
 bool String::empty(){
 	if(size_==0){
 		return true;
@@ -171,6 +172,7 @@ bool String::empty(){
 		return false;
 	}
 }
+
 
 void String::reserve(size_t n){
 	if(n>capacity_){
