@@ -85,6 +85,19 @@ String& String::operator+(const String& str){
 	return *this;
 }
 
+
+String& String::operator=(char c){
+	
+  
+	return *this;
+}
+
+String& String::operator+(const char* s){
+  
+  
+	return *this;
+}
+
 // Copies the null-terminated character sequence (C-string) pointed by s.
 // First, counting the number of characters in the string put in argument
 // If the string put into argument is longer than the max_size_ : 
