@@ -286,19 +286,19 @@ String operator+(const String& lhs, char rhs){
 
 
 // Concatenating strings
-String& String::operator+(const String& str){ // Carefull ! it's false
-
-	size_t sizeTemp=str.size();
-	if(size_+sizeTemp>capacity_){
-		reserve(size_+sizeTemp);
-	}
-	for(size_t i=size_;i<size_+sizeTemp;i++){
-		tab_[i]=str.tab_[i];	
-	}
-	size_+=sizeTemp;
-	tab_[size_]='\0'; //carefull, it's just size_ here 
-	return *this;
-}
+//~ String& String::operator+(const String& str){ // Carefull ! it's false
+//~ 
+	//~ size_t sizeTemp=str.size();
+	//~ if(size_+sizeTemp>capacity_){
+		//~ reserve(size_+sizeTemp);
+	//~ }
+	//~ for(size_t i=size_;i<size_+sizeTemp;i++){
+		//~ tab_[i]=str.tab_[i];	
+	//~ }
+	//~ size_+=sizeTemp;
+	//~ tab_[size_]='\0';
+	//~ return *this;
+//~ }
 
 // Arguments taken : const String& slhs,const char* srhs
 // Concatenating strings 
