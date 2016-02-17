@@ -133,20 +133,21 @@ String& String::operator+(const char* s){
 	return *this;
 }
 
-// Concatenating strings
-String& String::operator+(const String& str){
 
-	size_t sizeTemp=str.size();
-	if(size_+sizeTemp>capacity_){
-		reserve(size_+sizeTemp+1);
-	}
-	for(size_t i=size_;i<size_+sizeTemp;i++){
-		tab_[i]=str.tab_[i];		
-	}
-	size_+=sizeTemp;
-	tab_[size_+1]='\0';
-	return *this;
-}
+//~ // Concatenating strings
+//~ String String::operator+(const char rhs){
+//~ 
+	//~ size_t sizeTemp=str.size();
+	//~ if(size_+sizeTemp>capacity_){
+		//~ reserve(size_+sizeTemp);
+	//~ }
+	//~ for(size_t i=size_;i<size_+sizeTemp;i++){
+		//~ tab_[i]=str.tab_[i];		
+	//~ }
+	//~ size_+=sizeTemp;
+	//~ tab_[size_+1]='\0';
+	//~ return *this;
+//~ }
 
 // ============================= Getters ===================================
 
@@ -296,3 +297,9 @@ bool String::empty(){
 // ===========================================================================
 //                              External Methods
 // ===========================================================================
+
+//~ String String::operator+(const String& lhs, char rhs){
+  //~ 
+  //~ String result = String();
+	//~ return result;
+//~ }

@@ -48,8 +48,9 @@ class String {
 		//                                 Operators
 		// =========================================================================
 		
-		String& operator+(const String& );
-		String& operator+(const char*);
+		String& operator+(const String& ); //Non il ne faut pas modifier les élements
+		String& operator+(const char*); // Vous avez fait += pas +
+		//~ friend String operator+(const String&, char);
 	 
 		// =========================================================================
 		//                              Public Methods

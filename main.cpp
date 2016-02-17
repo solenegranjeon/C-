@@ -65,9 +65,13 @@ int main() {
   
 
   String E = String("Hello ");
+  
+  printf("The size of E = %d \n",int(E.size()));
+  printf("The capacity of E = %d \n",int(E.capacity()));
+  
   String F = String("World");
   
-  E+F;
+  //~ E+F;
   
   printf("The size of E = %d \n",int(E.size()));
   printf("The capacity of E = %d \n",int(E.capacity()));
