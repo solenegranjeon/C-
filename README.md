@@ -28,11 +28,10 @@ Class String: String.cpp String.h
 - operator+ (char) : Concatenates String and the new character (lhs is the string and rhs is the new character). Returns a newly constructed string object.
 
 To do:
-- +(char)
 - length, max_size, resize, =(char), +(char*)
 - capacity, empty, reserve, =(char*), +(string)
 
 Done:
-- Constr copie, c_str, size, clear, =(string), 
+- Constr copie, c_str, size, clear, =(string),  +(char)
 - Constr c-str,
 - Destructor,

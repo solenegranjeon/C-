@@ -76,6 +76,9 @@ int main() {
   printf("The size of E = %d \n",int(E.size()));
   printf("The capacity of E = %d \n",int(E.capacity()));
   
+  printf("The size of A is %d \n", int(A.size()));
+  A = B + 'a';
+  printf("The size of A is %d \n", int(A.size()));
   
   return 0;
 }
