@@ -71,29 +71,23 @@ String& String::operator=(const String& str){
 }
 
 // Concatenating strings
-String& String::operator+(const String& str){
+String& String::operator+(const String& str){ // Carefull ! it's false
 
 	size_t sizeTemp=str.size();
 	if(size_+sizeTemp>capacity_){
-		reserve(size_+sizeTemp+1);
+		reserve(size_+sizeTemp);
 	}
 	for(size_t i=size_;i<size_+sizeTemp;i++){
-		tab_[i]=str.tab_[i];		
+		tab_[i]=str.tab_[i];		// I think it is more str.tab()[i] isn't it?
 	}
 	size_+=sizeTemp;
-	tab_[size_+1]='\0';
+	tab_[size_+1]='\0'; //carefull, it's just size_ here 
 	return *this;
 }
 
 
 String& String::operator=(char c){
 	
-  
-	return *this;
-}
-
-String& String::operator+(const char* s){
-  
   
 	return *this;
 }
@@ -288,3 +282,35 @@ void String::resize (size_t n, char c){
 // ===========================================================================
 //                              External Methods
 // ===========================================================================
+
+// Arguments taken : const String& slhs,const char* srhs
+// Concatenating strings 
+// Returns a newly constructed string object 
+String operator+(const String& slhs,const char* srhs){ // like that or not? help please
+  
+  size_t sizeCountr = 0;
+  for (size_t i = 0 ; srhs[i] != '\0' ; i++){
+    sizeCountr ++;
+  }
+  String newString = String();
+  
+  if (slhs.size() + sizeCountr > newString.max_size()){
+    printf("You aren't allowed to concatenate your strings with more"
+    " than %d characters in total. Default string created "
+    "\n",int(newString.max_size()));
+  }
+  
+	else {
+    
+		newString.reserve(slhs.size() + sizeCountr);
+    for(size_t i = 0; i < slhs.size(); i++){
+      newString.tab_[i] = slhs.tab_[i];		
+    }
+    for(size_t i = slhs.size(); i < slhs.size() + sizeCountr; i++){
+      newString.tab_[i] = srhs[i];		
+    }
+    newString.size_ = slhs.size() + sizeCountr;
+    newString.tab_[newString.size()]='\0';
+	}	
+	return newString;
+}
