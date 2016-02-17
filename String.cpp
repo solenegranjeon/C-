@@ -262,8 +262,7 @@ void String::resize (size_t n, char c){
   }
   else if (n < (size_-1)){
     size_= n;
-    tab_[size_] = '\0'; //Is it ok for you if I let the \0 of the
-    // previous form? or do I have to remove it?
+    tab_[size_] = '\0';
   }
   else if (n == size_){
     printf("You already have a string with %d "
