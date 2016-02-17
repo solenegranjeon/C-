@@ -59,10 +59,10 @@ protected :
   // =========================================================================
   //                                Attributes
   // =========================================================================
-	char* tab_;
-	size_t size_;  //doesn't include \0
-	size_t capacity_;  //doesn't include \0
-	static const size_t max_size_;  // equals 100 (With or whithout \0?)	
+	char* tab_; // ptr pointing to a table of Characters
+	size_t size_;  // doesn't include \0
+	size_t capacity_;  // doesn't include \0
+	static const size_t max_size_;  // equals 100 (With or WHITHOUT \0?)	
 
 // ===========================================================================
 //                            Getters' definitions

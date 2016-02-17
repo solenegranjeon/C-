@@ -14,6 +14,8 @@ const size_t String::max_size_=100;
 // ===========================================================================
 //                                Constructors
 // ===========================================================================
+
+// Default constructor do we really have to put it? I don't see it on the exam request
 String::String() {
 
 	size_ = 0;
@@ -22,6 +24,7 @@ String::String() {
 	tab_[0] = '\0';
 }
 
+// Copy constructor - constructs a copy of str.
 String::String(const String& str){
 	
 	size_ = str.size_ ;
@@ -65,6 +68,7 @@ String& String::operator=(const String& str){
 	return *this;
 }
 
+// Concatenating strings
 String& String::operator+(const String& str){
 	size_t sizeTemp=str.size();
 	if(size_+sizeTemp>capacity_){
@@ -78,6 +82,11 @@ String& String::operator+(const String& str){
 	return *this;
 }
 
+// Copies the null-terminated character sequence (C-string) pointed by s.
+// First, counting the number of characters in the string put in argument
+// If the string put into argument is longer than the max_size_ : 
+// printing error message and creating a default string
+// Else, doing the copy of the string
 String::String(const char* str){
   
   size_t sizeCount = 0;
@@ -108,6 +117,8 @@ String::String(const char* str){
 // ===========================================================================
 //                                 Destructor
 // ===========================================================================
+// Destructor - deleting the table created before and printing a message
+// to validate the destruction
 String::~String() {
 	delete [] tab_;
 	tab_ = nullptr;
@@ -117,31 +128,40 @@ String::~String() {
 // ===========================================================================
 //                               Public Methods
 // ===========================================================================
-
+// Getter of the capacity of the string
 size_t String::capacity(){
 	return capacity_;
 }
 
+// Getter of the size of the string
 size_t String::size() const{
 	return size_;
 }
 
+// Getter of the length (=size) of the string
 size_t String::length() const{
 	return size_;
 }
 
+// Getter of the maximum size of the string
 size_t String::max_size() const{
 	return max_size_;
 }
 
+// Getter of the tab_
+// Returns a pointer to an array containing a null-terminated sequence 
+// of characters representing the current value of the string object
+const char* String::c_str(){
+	return tab_;
+}
+
+// Erases the contents of the string, which becomes an empty string
+// (length of 0 characters).
 void String::clear(){
 	size_ = 0;
 	tab_[0] = '\0';
 }
 
-const char* String::c_str(){
-	return tab_;
-}
 
 bool String::empty(){
 	if(size_==0){
@@ -180,8 +200,7 @@ void String::resize (size_t n){
   }
   else if (n < (size_-1)){
     size_= n;
-    tab_[size_] = '\0'; //Is it ok for you if I let the \0 of the
-    // previous form? or do I have to remove it?
+    tab_[size_] = '\0';
   }
   else if (n == size_){
     printf("You already have a string with %d "
