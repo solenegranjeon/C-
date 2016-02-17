@@ -234,7 +234,7 @@ void String::resize (size_t n){
   else {
     this->reserve(n);
     
-    for(size_t i = size_; i < (capacity_+1); i++){
+    for(size_t i = size_; i < (capacity_); i++){
       tab_[i] = '/';
 		}
     size_ = n;
@@ -269,7 +269,7 @@ void String::resize (size_t n, char c){
   else {
     this->reserve(n);
 
-    for(size_t i = size_; i < (capacity_+1); i++){
+    for(size_t i = size_; i < (capacity_); i++){
       tab_[i] = c;
 		}
     size_ = n;
@@ -324,7 +324,7 @@ String operator+(const String& lhs, char rhs){
 // Arguments taken : const String& slhs,const char* srhs
 // Concatenating strings 
 // Returns a newly constructed string object 
-String operator+(const String& slhs,const char* srhs){ // like that or not? help please
+String operator+(const String& slhs,const char* srhs){ 
   
   size_t sizeCountr = 0;
   for (size_t i = 0 ; srhs[i] != '\0' ; i++){
@@ -345,7 +345,7 @@ String operator+(const String& slhs,const char* srhs){ // like that or not? help
       newString.tab_[i] = slhs.tab_[i];		
     }
     for(size_t i = slhs.size(); i < slhs.size() + sizeCountr; i++){
-      newString.tab_[i] = srhs[i];		
+      newString.tab_[i] = srhs[i-slhs.size()];		
     }
     newString.size_ = slhs.size() + sizeCountr;
     newString.tab_[newString.size()]='\0';

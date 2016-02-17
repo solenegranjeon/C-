@@ -38,27 +38,35 @@ int main() {
   String C1 = String("I'm not crazy, my mother had me tested!"
     "I'm not crazy, my mother had me tested!"
     "I'm not crazy, my mother had me tested!");
+  printf("C1 = '%s'\n\n",C1.c_str());
   
   C1.resize(105);
-  printf("Resizing to 105 : \n size C1 = %d, capacity C1 = %d"
-  "\n",int(C1.size()),int(C1.capacity()));
   
-  C1.resize(40);
-  printf("Resizing to 40 : \n size C1 = %d, capacity C1 = %d"
-  "\n",int(C1.size()),int(C1.capacity()));
-
   C1.resize(25);
   printf("Resizing to 25 : \n size C1 = %d, capacity C1 = %d"
   "\n\n",int(C1.size()),int(C1.capacity()));
   
+  C1.resize(40,'*');
+  printf("Resizing to 40 : \n size C1 = %d, capacity C1 = %d"
+  "\n",int(C1.size()),int(C1.capacity()));
+  printf("Test of the resize method with char ('*') given in arg:  \n"
+  "C1 = '%s'.\n\n",C1.c_str());
+  
+  C1.resize(40,'*');
+
+  C1.resize(30,'*');
+  printf("Resizing to 30 : \n size C1 = %d, capacity C1 = %d"
+  "\n",int(C1.size()),int(C1.capacity()));
+  printf("Test of the resize method:  \nC1 = '%s'.\n\n",C1.c_str());
+  
   String C = String("I'm not crazy, my mother had me tested!");
-  printf("The size of C = %d \n",int(C.size()));
+  printf("Test of the c-string constructor:  \nC = '%s'.\n\n",C.c_str());
   
 //======================================================================
 //         Testing the length() method and max_size() method
 //======================================================================
-  printf("The length of C = %d \n",int(C.length()));
-  printf("The max_size_ of C = %d \n",int(C.max_size()));
+  printf("The length of C = %d.\n",int(C.length()));
+  printf("The max_size_ of C = %d.\n",int(C.max_size()));
 
 //======================================================================
 //                Testing 
@@ -93,25 +101,22 @@ int main() {
 //                Testing the operator = (char c)
 //======================================================================  
   C1 = 'a';
-  printf("After operator = 'a', the size of C1 is %d"
-  " \n", int(C1.size()));
+  printf("\nAfter operator = 'a', the size of C1 is %d"
+  " and C1 = '%s'.\n", int(C1.size()), C1.c_str());
   
   C1 = 'a';
-  printf("After operator = 'a', the size of C1 is %d"
-  " \n", int(C1.size()));
   
-  C1 = 'b';
-  printf("After operator = 'b', the size of C1 is %d"
-  " \n", int(C1.size()));
+  C1 = 'B';
+  printf("After operator = 'B', C1 = '%s'.\n\n", C1.c_str());
   
 //======================================================================
 //                Testing the operator + (char*)
 //====================================================================== 
-  const char* test = "abar";
+  const char* test = "azinga!";
   String C2 = C1 + test;
   
-  printf("After operator + test, the size of C2 is %d"
-  " \n", int(C2.size()));
+  printf("\nAfter operator + test, the size of C2 is %d"
+  " and C1 = '%s'.\n\n", int(C2.size()), C2.c_str());
   
 //======================================================================
 //                Testing
