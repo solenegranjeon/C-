@@ -10,14 +10,14 @@
 //                       Definition of static attributes
 // ===========================================================================
 
-// Putting the const static maximum size to 100 (without counting '\0')	
+// Sets the const static maximum size to 100 (without counting '\0')	
 const size_t String::max_size_=100;
 
 // ===========================================================================
 //                                Constructors
 // ===========================================================================
 
-// Default constructor do we really have to put it? I don't see it on the exam request
+// Default constructor
 String::String() {
 
 	size_ = 0;
@@ -32,11 +32,48 @@ String::String(const String& str){
 	size_ = str.size_ ;
 	capacity_ = str.capacity_;
 	tab_ = new char[capacity_ + 1];
-	for(size_t i = 0; i<size_; i++){
+	for(size_t i = 0; i<=size_; i++){
 		tab_[i] = str.tab_[i];
 	}
 	
-}	
+}
+
+// Copies the null-terminated character sequence (C-string) pointed by s.
+// First, counting the number of characters in the string put in argument
+// If the string put into argument is longer than the max_size_ : 
+// printing error message and creating a default string
+// Else, doing the copy of the string
+String::String(const char* str){
+  
+  size_t sizeCount = 0;
+  for (size_t i = 0 ; str[i] != '\0' ; i++){
+    sizeCount ++;
+  }
+  
+  if (sizeCount <= max_size_){
+    size_ = sizeCount ;
+    capacity_ = sizeCount ;
+    tab_ = new char[capacity_ + 1];
+    for(size_t i = 0; i<=size_; i++){
+      tab_[i] = str[i];
+    }	
+  }
+  
+  else {
+    printf("The string you want to put is too long for me, I can't "
+      "handle it. So I created a new string with values by default.\n");
+    size_ = 0;
+    capacity_ = 0;
+    tab_ = new char[capacity_+1];
+    tab_[0] = '\0';
+  }
+}		
+
+String& String::operator=(char c){
+	
+  
+	return *this;
+}
 
 // Replaces the contents with a copy of str. 
 // If *this and str are the same object, this function has no effect.
@@ -70,59 +107,6 @@ String& String::operator=(const String& str){
 	return *this;
 }
 
-// Concatenating strings
-String& String::operator+(const String& str){ // Carefull ! it's false
-
-	size_t sizeTemp=str.size();
-	if(size_+sizeTemp>capacity_){
-		reserve(size_+sizeTemp);
-	}
-	for(size_t i=size_;i<size_+sizeTemp;i++){
-		tab_[i]=str.tab_[i];		// I think it is more str.tab()[i] isn't it?
-	}
-	size_+=sizeTemp;
-	tab_[size_+1]='\0'; //carefull, it's just size_ here 
-	return *this;
-}
-
-
-String& String::operator=(char c){
-	
-  
-	return *this;
-}
-
-// Copies the null-terminated character sequence (C-string) pointed by s.
-// First, counting the number of characters in the string put in argument
-// If the string put into argument is longer than the max_size_ : 
-// printing error message and creating a default string
-// Else, doing the copy of the string
-String::String(const char* str){
-  
-  size_t sizeCount = 0;
-  for (size_t i = 0 ; str[i] != '\0' ; i++){
-    sizeCount ++;
-  }
-  
-  if (sizeCount <= max_size_){
-    size_ = sizeCount ;
-    capacity_ = sizeCount ;
-    tab_ = new char[capacity_ + 1];
-    for(size_t i = 0; i<=size_; i++){
-      tab_[i] = str[i];
-    }	
-  }
-  
-  else {
-    printf("The string you want to put is too long for me, I can't "
-      "handle it. So I created a new string with values by default.\n");
-    size_ = 0;
-    capacity_ = 0;
-    tab_ = new char[capacity_+1];
-    tab_[0] = '\0';
-  }
-}	
-
 
 // ===========================================================================
 //                                 Destructor
@@ -139,6 +123,12 @@ String::~String() {
 // ===========================================================================
 //                               Public Methods
 // ===========================================================================
+
+
+// ============================= Operators ===================================
+
+
+// ============================= Getters ===================================
 
 // Getter of the capacity of the string
 size_t String::capacity(){
@@ -167,22 +157,13 @@ const char* String::c_str(){
 	return tab_;
 }
 
+//============================= Setters ====================================
+
 // Erases the contents of the string, which becomes an empty string
-// (length of 0 characters).
+// (length of 0 characters). Doesn't modify the capacity
 void String::clear(){
 	size_ = 0;
 	tab_[0] = '\0';
-}
-
-// Test if string is empty (==0 or not)
-// This will not modify anything, returning only True or False
-bool String::empty(){
-	if(size_==0){
-		return true;
-	} 
-	else {
-		return false;
-	}
 }
 
 // Request a change in capacity
@@ -275,6 +256,19 @@ void String::resize (size_t n, char c){
   }
 }
 
+// Other
+
+// Test if string is empty (==0 or not)
+// This will not modify anything, returning only True or False
+bool String::empty(){
+	if(size_==0){
+		return true;
+	} 
+	else {
+		return false;
+	}
+}
+
 // ===========================================================================
 //                              Protected Methods
 // ===========================================================================
@@ -282,6 +276,29 @@ void String::resize (size_t n, char c){
 // ===========================================================================
 //                              External Methods
 // ===========================================================================
+
+String operator+(const String& lhs, char rhs){
+  size_t newsize = lhs.size() + 1;
+  String result = String(lhs);
+  result.resize(newsize,rhs);
+	return result;
+}
+
+
+// Concatenating strings
+String& String::operator+(const String& str){ // Carefull ! it's false
+
+	size_t sizeTemp=str.size();
+	if(size_+sizeTemp>capacity_){
+		reserve(size_+sizeTemp);
+	}
+	for(size_t i=size_;i<size_+sizeTemp;i++){
+		tab_[i]=str.tab_[i];	
+	}
+	size_+=sizeTemp;
+	tab_[size_]='\0'; //carefull, it's just size_ here 
+	return *this;
+}
 
 // Arguments taken : const String& slhs,const char* srhs
 // Concatenating strings 

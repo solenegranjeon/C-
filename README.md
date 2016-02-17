@@ -25,4 +25,13 @@ Class String: String.cpp String.h
 - c_str() : Returns a pointer to an array that contains a null-terminated sequence of characters (i.e., a C-string) representing the current value of the string object. This array includes the same sequence of characters that make up the value of the string object plus an additional terminating null-character ('\0') at the end. The pointer returned points to the internal array currently used by the string object to store the characters that conform its value.
 - size() : Return length of string
 - operator= (string str) : Replaces the contents with a copy of str. If *this and str are the same object, this function has no effect.
-- operator+ (char) : Concatenate String and the new character (lhs is the string and rhs is the new character)
+- operator+ (char) : Concatenates String and the new character (lhs is the string and rhs is the new character). Returns a newly constructed string object.
+
+To do:
+- length, max_size, resize, =(char), +(char*)
+- capacity, empty, reserve, =(char*), +(string)
+
+Done:
+- Constr copie, c_str, size, clear, =(string),  +(char)
+- Constr c-str,
+- Destructor,
