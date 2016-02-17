@@ -69,25 +69,11 @@ String::String(const char* str){
   }
 }	
 
-
-// ===========================================================================
-//                                 Destructor
-// ===========================================================================
-
-// Destructor - deleting the table created before and printing a message
-// to validate the destruction
-String::~String() {
-	delete [] tab_;
-	tab_ = nullptr;
-	printf("Protocol order 62 executed : String no longer operational. \n");
+String& String::operator=(char c){
+	
+  
+	return *this;
 }
-
-// ===========================================================================
-//                               Public Methods
-// ===========================================================================
-
-
-// ============================= Operators ===================================
 
 // Replaces the contents with a copy of str. 
 // If *this and str are the same object, this function has no effect.
@@ -118,6 +104,32 @@ String& String::operator=(const String& str){
 	else{
 		printf("The two strings are already equal.\n");
 	}
+	return *this;
+}
+
+
+// ===========================================================================
+//                                 Destructor
+// ===========================================================================
+
+// Destructor - deleting the table created before and printing a message
+// to validate the destruction
+String::~String() {
+	delete [] tab_;
+	tab_ = nullptr;
+	printf("Protocol order 62 executed : String no longer operational. \n");
+}
+
+// ===========================================================================
+//                               Public Methods
+// ===========================================================================
+
+
+// ============================= Operators ===================================
+
+String& String::operator+(const char* s){
+  
+  
 	return *this;
 }
 
@@ -172,17 +184,6 @@ const char* String::c_str(){
 void String::clear(){
 	size_ = 0;
 	tab_[0] = '\0';
-}
-
-// Test if string is empty (==0 or not)
-// This will not modify anything, returning only True or False
-bool String::empty(){
-	if(size_==0){
-		return true;
-	} 
-	else {
-		return false;
-	}
 }
 
 // Request a change in capacity
@@ -273,6 +274,19 @@ void String::resize (size_t n, char c){
     size_ = n;
     tab_[size_+1] = '\0';
   }
+}
+
+// Other
+
+// Test if string is empty (==0 or not)
+// This will not modify anything, returning only True or False
+bool String::empty(){
+	if(size_==0){
+		return true;
+	} 
+	else {
+		return false;
+	}
 }
 
 // ===========================================================================
