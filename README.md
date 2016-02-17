@@ -26,3 +26,13 @@ Class String: String.cpp String.h
 - size() : Return length of string
 - operator= (string str) : Replaces the contents with a copy of str. If *this and str are the same object, this function has no effect.
 - operator+ (char) : Concatenate String and the new character (lhs is the string and rhs is the new character)
+
+To do:
+- +(char)
+- length, max_size, resize, =(char), +(char*)
+- capacity, empty, reserve, =(char*), +(string)
+
+Done:
+- Constr copie, c_str, size, clear, =(string), 
+- Constr c-str,
+- Destructor,
