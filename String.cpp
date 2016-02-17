@@ -10,7 +10,9 @@
 //                       Definition of static attributes
 // ===========================================================================
 
+// Putting the const static maximum size to 100 (without counting '\0')	
 const size_t String::max_size_=100;
+
 // ===========================================================================
 //                                Constructors
 // ===========================================================================
@@ -70,6 +72,7 @@ String& String::operator=(const String& str){
 
 // Concatenating strings
 String& String::operator+(const String& str){
+
 	size_t sizeTemp=str.size();
 	if(size_+sizeTemp>capacity_){
 		reserve(size_+sizeTemp+1);
@@ -117,6 +120,7 @@ String::String(const char* str){
 // ===========================================================================
 //                                 Destructor
 // ===========================================================================
+
 // Destructor - deleting the table created before and printing a message
 // to validate the destruction
 String::~String() {
@@ -128,6 +132,7 @@ String::~String() {
 // ===========================================================================
 //                               Public Methods
 // ===========================================================================
+
 // Getter of the capacity of the string
 size_t String::capacity(){
 	return capacity_;
@@ -162,7 +167,7 @@ void String::clear(){
 	tab_[0] = '\0';
 }
 
-// Test if string is empty
+// Test if string is empty (==0 or not)
 // This will not modify anything, returning only True or False
 bool String::empty(){
 	if(size_==0){
@@ -173,8 +178,9 @@ bool String::empty(){
 	}
 }
 
-
+// Request a change in capacity
 void String::reserve(size_t n){
+
 	if(n>capacity_){
 		if(n>max_size_){
 			printf("You aren't allowed to reserve more than %d "
@@ -195,7 +201,15 @@ void String::reserve(size_t n){
 	} 	
 }
 
+// Resizes the string to a length of n characters
+// If new size > max_size_ print error message
+// If new size < old size 
+//  => cutting the old size, and adding '\0' at the end of the new size
+// If new size = old size print error message
+// If new size > old size => changing the capacity 
+//  and adding '/' to extend the old to the new size
 void String::resize (size_t n){
+
   if (n > max_size_){
 		printf("You aren't allowed to resize your string with more than %d "//to or with?
 		"characters. \n",int(max_size_));
@@ -233,7 +247,15 @@ void String::resize (size_t n){
   
 }
 
+// Resizes the string to a length of n characters
+// If new size > max_size_ print error message
+// If new size < old size 
+//  => cutting the old size, and adding '\0' at the end of the new size
+// If new size = old size print error message
+// If new size > old size => changing the capacity 
+//  and adding the character in arg. to extend the old to the new size
 void String::resize (size_t n, char c){
+
   if (n > max_size_){
 		printf("You aren't allowed to resize your string with more than %d "//to or with?
 		"characters. \n",int(max_size_));
@@ -268,8 +290,6 @@ void String::resize (size_t n, char c){
     size_ = n;
   }
 }
-
-
 
 // ===========================================================================
 //                              Protected Methods
