@@ -15,10 +15,10 @@ A. Cathignol - S. Granjeon - A. Weber
 Class String: String.cpp String.h
 
 -Attributes:
-    char* tab_ : ptr pointing to a table of Characters
-    size_t size_ : number of characters in the string; doesn't include \0
-    size_t capacity_ : number of characters possible to put in the string; doesn't include \0
-    static const size_t max_size_ : maximum size to put in the string; equals 100 (without \0)	
+  - char* tab_ : ptr pointing to a table of Characters
+  - size_t size_ : number of characters in the string; doesn't include \0
+  - size_t capacity_ : number of characters possible to put in the string; doesn't include \0
+  - static const size_t max_size_ : maximum size to put in the string; equals 100 (without \0)	
 
 -Constructors:
   - Default
