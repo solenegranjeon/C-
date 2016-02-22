@@ -14,6 +14,12 @@ A. Cathignol - S. Granjeon - A. Weber
 
 Class String: String.cpp String.h
 
+-Attributes:
+    char* tab_ : ptr pointing to a table of Characters
+    size_t size_ : number of characters in the string; doesn't include \0
+    size_t capacity_ : number of characters possible to put in the string; doesn't include \0
+    static const size_t max_size_ : maximum size to put in the string; equals 100 (without \0)	
+
 -Constructors:
   - Default
   - Copy
@@ -26,6 +32,10 @@ Class String: String.cpp String.h
 - size() : Return length of string
 - length() : Return length of string
 - max_size() : Return the maximum size that will be accepted when the string is created.
+- resize() : Resizes the string to a length of n characters. If the new "size > max_size_" print error message. 
+If new size < old size : => cutting the old size, and adding '\0' at the end of the new size
+If new size = old size : print error message
+If new size > old size : => changing the capacity and adding '/' to extend the old to the new size if no other character given.
 - operator= (string str) : Replaces the contents with a copy of str. If *this and str are the same object, this function has no effect.
 - operator= (char) : Replaces the contents with a single character. Require a change in capacity and size. If *this and char are the same object, this function has no effect.
 - operator+ (char) : Concatenates String and the new character (lhs is the string and rhs is the new character). Returns a newly constructed string object.
