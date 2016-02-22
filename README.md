@@ -43,11 +43,12 @@ If new size > old size : => changing the capacity and adding '/' to extend the o
 
   - operator+ (char*) : Concatenates a String and (a pointer to) characters (slhs is the string and srhs is the pointer). Returns a newly constructed string object.
 
+
 To do: 
--capacity, empty, reserve, =(char*), +(string)
+ -capacity, empty, reserve, =(char*), +(string)
 
 
 Done:
--Constr copie, c_str, size, clear, =(string),  +(char)
--Constr c-str, length, max_size, resize, =(char), +(char*)
--Destructor,
+ -Constr copie, c_str, size, clear, =(string),  +(char)
+ -Constr c-str, length, max_size, resize, =(char), +(char*)
+ -Destructor,
