@@ -45,10 +45,13 @@ If new size > old size : => changing the capacity and adding '/' to extend the o
 
 
 To do: 
+
  -capacity, empty, reserve, =(char*), +(string)
 
 
 Done:
  -Constr copie, c_str, size, clear, =(string),  +(char)
+ 
  -Constr c-str, length, max_size, resize, =(char), +(char*)
+ 
  -Destructor,
