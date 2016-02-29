@@ -81,22 +81,6 @@ int main() {
   C.reserve(42);
   printf("The capacity of C = %d \n",int(C.capacity()));
   
-
-  String E = String("Hello ");
-  
-  printf("The size of E = %d \n",int(E.size()));
-  printf("The capacity of E = %d \n",int(E.capacity()));
-  
-  String F = String("World");
-  
-  //~ E+F;
-  
-  printf("The size of E = %d \n",int(E.size()));
-  printf("The capacity of E = %d \n",int(E.capacity()));
-  
-  printf("The size of A is %d \n", int(A.size()));
-  A = B + 'a';
-  printf("The size of A is %d \n", int(A.size()));
   
 //======================================================================
 //                Testing the operator = (char c)
@@ -137,6 +121,14 @@ int main() {
   printf("The capacity of G = %d \n",int(G.capacity()));
   printf("G = '%s' .\n",G.c_str());
   
+//======================================================================
+//                Testing the operator + (Char)
+//====================================================================== 
+  
+  String Test_So = String("Solèn");
+  printf("The size of Test_So is %d \n",int(Test_So.size()));
+  String Test_So2 = Test_So + 'e';
+  printf("The size of Test_So2 is %d \n",int(Test_So2.size()));
   
   return 0;
 }

@@ -210,8 +210,8 @@ void String::reserve(size_t n){
 			}
 			delete [] tab_;
 			tab_ = new char[n+1]; // Carefull!!!! , I put  +1 , is it good?
-			capacity_=n;
-			for(size_t i = 0; i<size_ + 1; i++){
+			capacity_ = n;
+			for(size_t i = 0; i < size_ + 1; i++){
 				tab_[i] = data[i];
 			} 
 			delete [] data;
@@ -309,9 +309,16 @@ bool String::empty(){
 
 String operator+(const String& lhs, char rhs){
   size_t newsize = lhs.size() + 1;
-  String result = String(lhs);
-  result.resize(newsize,rhs);
-	return result;
+  if( newsize < lhs.max_size_ ){
+		String result = String(lhs);
+		result.resize(newsize,rhs);
+		return result;
+	}
+	else{
+		printf("Not allowed to perform this operation because you are going"
+		" beyond the maximum size allowed! The result given is the null string.");
+		return String();
+	}
 }
 
 
@@ -361,7 +368,7 @@ String operator+(const String& a,const String& b){
 }
 
 // Arguments taken : const String& slhs,const char* srhs
-// Concatenating strings 
+// Concatenating strings max_size_
 // Returns a newly constructed string object 
 String operator+(const String& slhs,const char* srhs){ 
   
