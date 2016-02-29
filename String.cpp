@@ -198,13 +198,14 @@ void String::clear(){
 // Request a change in capacity
 void String::reserve(size_t n){
 
-	if(n>capacity_){
-		if(n>max_size_){
+	if(n > capacity_){
+		if(n > max_size_){
 			printf("You aren't allowed to reserve more than %d "
 				"characters. \n",(int)(max_size_));
-		} else {
-			char* data= new char[n+1];
-			for(size_t i = 0; i<size_ + 1; i++){
+		} 
+		else {
+			char* data = new char[n+1];
+			for(size_t i = 0; i < size_ + 1; i++){
 				data[i] = tab_[i];
 			}
 			delete [] tab_;
