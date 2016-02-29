@@ -37,7 +37,6 @@ int main() {
 //                Testing the Constructor c-string
 //                And testing the resize method
 //======================================================================
-
   String C1 = String("I'm not crazy, my mother had me tested!"
     "I'm not crazy, my mother had me tested!"
     "I'm not crazy, my mother had me tested!");
