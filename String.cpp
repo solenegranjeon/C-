@@ -276,7 +276,7 @@ void String::resize (size_t n){
   }
   else if (n < size_){
     size_= n;
-    tab_[size_ + 1] = '\0';
+    tab_[size_] = '\0';
   }
   else if (n == size_){
     printf("You already have a string with %d "
@@ -289,7 +289,7 @@ void String::resize (size_t n){
       tab_[i] = '/';
 		}
     size_ = n;
-    tab_[size_+1] = '\0';
+    tab_[size_] = '\0';
     printf("You didn't specify the type of character you wanted, so I "
     "added: '/' to extend your string to the size you chose.\n");
   }
@@ -311,7 +311,7 @@ void String::resize (size_t n, char c){
   }
   else if (n < size_){
     size_= n;
-    tab_[size_+1] = '\0';
+    tab_[size_] = '\0';
   }
   else if (n == size_){
     printf("You already have a string with %d "
@@ -324,7 +324,7 @@ void String::resize (size_t n, char c){
       tab_[i] = c;
 		}
     size_ = n;
-    tab_[size_+1] = '\0';
+    tab_[size_] = '\0';
   }
 }
 
