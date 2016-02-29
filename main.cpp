@@ -126,7 +126,7 @@ int main() {
 //                Testing the operator + (Char)
 //====================================================================== 
   
-  String Test_So = String("Solèn");
+  String Test_So = String("Solen");
   printf("The size of Test_So is %d \n",int(Test_So.size()));
   printf("Test_So = '%s'\n",Test_So.c_str());
   String Test_So2 = Test_So + 'e';
