@@ -206,7 +206,7 @@ String::~String() {
 // ============================= Getters ===================================
 
 // Getter of the capacity of the string
-size_t String::capacity(){
+size_t String::capacity() const{
 	return capacity_;
 }
 
