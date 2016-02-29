@@ -35,7 +35,7 @@ Class String: String.cpp String.h
   - length() : Return length of string
   - empty() : Return a boolean : true if string is empty , if not false
   - max_size() : Return the maximum size that will be accepted when the string is created.
-  - resize() : Resizes the string to a length of n characters. If the new "size > max_size_" print error message. 
+  - resize(size_t n) or resize(size_t n, char c) : Resizes the string to a length of n characters. If the new "size > max_size_" print error message. 
 If new size < old size : => cutting the old size, and adding '\0' at the end of the new size
 If new size = old size : print error message
 If new size > old size : => changing the capacity and adding '/' to extend the old to the new size if no other character given.
