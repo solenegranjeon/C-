@@ -196,6 +196,7 @@ void String::clear(){
 }
 
 // Request a change in capacity
+// if n < capacity : let the original capacity
 void String::reserve(size_t n){
 
 	if(n>capacity_){
@@ -204,13 +205,13 @@ void String::reserve(size_t n){
 				"characters. \n",(int)(max_size_));
 		} else {
 			char* data= new char[n+1];
-			for(size_t i = 0; i<size_ + 1; i++){
+			for(size_t i = 0; i < size_ + 1; i++){
 				data[i] = tab_[i];
 			}
 			delete [] tab_;
-			tab_ = new char[n+1]; // Carefull!!!! , I put  +1 , is it good?
+			tab_ = new char[n+1];
 			capacity_=n;
-			for(size_t i = 0; i<size_ + 1; i++){
+			for(size_t i = 0; i < size_ + 1; i++){
 				tab_[i] = data[i];
 			} 
 			delete [] data;
