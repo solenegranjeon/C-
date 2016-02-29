@@ -71,10 +71,10 @@ int main() {
   String C = String("I'm not crazy, my mother had me tested!");
   printf("Test of the c-string constructor:  \nC = '%s'.\n\n",C.c_str());
   
-  
 //======================================================================
 //                   Testing the Copy Constructor 
 //====================================================================== 
+
   String B = String(C);  
   printf("Copy constructor B (copy of C) = '%s'\n\n",B.c_str());
   
