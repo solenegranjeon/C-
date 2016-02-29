@@ -137,6 +137,47 @@ String& String::operator=(const String& str){
 }
 
 
+// Replaces the content with a copy of s. 
+// If *this and str are the same object, this function has no effect.
+String& String::operator=(const char* s){
+
+//Checks if the string and the char* are not equal 
+	bool equal = true;
+	size_t sizeCountr = 0;
+  for (size_t i = 0 ; s[i] != '\0' ; i++){
+    sizeCountr ++;
+  }
+	if(this->size_ != sizeCountr){
+		equal = false;
+	}
+	else{
+		int i = 0;
+		while(s[i]!= '\0'){
+			if(s[i]!=this->tab_[i]){
+				equal = false;
+			}
+			i++;
+		}
+	}
+
+//If they are not, it replaces the content with a copy of s.
+
+	if(equal==false){
+			size_ = sizeCountr;
+			capacity_ = sizeCountr;
+			delete[] tab_;
+			tab_ = new char[capacity_ + 1];
+			for(size_t i = 0; i<size_; i++){
+				tab_[i] = s[i];
+			}
+		}
+		
+	else{
+		printf("The two strings are already equal.\n"); 
+	}
+	return *this;
+}
+
 // ===========================================================================
 //                                 Destructor
 // ===========================================================================
@@ -146,7 +187,7 @@ String& String::operator=(const String& str){
 String::~String() {
 	delete [] tab_;
 	tab_ = nullptr;
-	printf("Protocol order 62 executed : String no longer operational.r\n");
+	printf("Protocol order 62 executed : String no longer operational.\n");
 }
 
 // ===========================================================================
@@ -196,6 +237,7 @@ void String::clear(){
 }
 
 // Request a change in capacity
+// if n < capacity : let the original capacity
 void String::reserve(size_t n){
 
 	if(n > capacity_){
@@ -209,8 +251,8 @@ void String::reserve(size_t n){
 				data[i] = tab_[i];
 			}
 			delete [] tab_;
-			tab_ = new char[n+1]; // Carefull!!!! , I put  +1 , is it good?
-			capacity_ = n;
+			tab_ = new char[n+1];
+			capacity_=n;
 			for(size_t i = 0; i < size_ + 1; i++){
 				tab_[i] = data[i];
 			} 
@@ -234,7 +276,7 @@ void String::resize (size_t n){
   }
   else if (n < size_){
     size_= n;
-    tab_[size_ + 1] = '\0';
+    tab_[size_] = '\0';
   }
   else if (n == size_){
     printf("You already have a string with %d "
@@ -247,7 +289,7 @@ void String::resize (size_t n){
       tab_[i] = '/';
 		}
     size_ = n;
-    tab_[size_+1] = '\0';
+    tab_[size_] = '\0';
     printf("You didn't specify the type of character you wanted, so I "
     "added: '/' to extend your string to the size you chose.\n");
   }
@@ -269,7 +311,7 @@ void String::resize (size_t n, char c){
   }
   else if (n < size_){
     size_= n;
-    tab_[size_+1] = '\0';
+    tab_[size_] = '\0';
   }
   else if (n == size_){
     printf("You already have a string with %d "
@@ -282,7 +324,7 @@ void String::resize (size_t n, char c){
       tab_[i] = c;
 		}
     size_ = n;
-    tab_[size_+1] = '\0';
+    tab_[size_] = '\0';
   }
 }
 
