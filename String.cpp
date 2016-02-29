@@ -138,7 +138,7 @@ String& String::operator=(const String& str){
 
 
 // Replaces the content with a copy of s. 
-// If *this and str are the same object, this function has no effect.
+// If *this and s contain the same object, this function has no effect.
 String& String::operator=(const char* s){
 
 //Checks if the string and the char* are not equal 
@@ -173,7 +173,7 @@ String& String::operator=(const char* s){
 		}
 		
 	else{
-		printf("The two strings are already equal.\n"); 
+		printf("The string and the char* are already equal.\n"); 
 	}
 	return *this;
 }
@@ -357,26 +357,9 @@ String operator+(const String& lhs, char rhs){
 }
 
 
-// Concatenating strings
-
-//~ String& String::operator+(const String& str){ // Carefull ! it's false
-//~ 
-	//~ size_t sizeTemp=str.size();
-	//~ if(size_+sizeTemp>capacity_){
-		//~ reserve(size_+sizeTemp);
-	//~ }
-	//~ for(size_t i=size_;i<size_+sizeTemp;i++){
-		//~ tab_[i]=str.tab_[i];	
-	//~ }
-	//~ size_+=sizeTemp;
-	//~ tab_[size_]='\0';
-	//~ return *this;
-//~ }
-
 // Arguments taken : const String& a,const String& b
 // Concatenating strings 
 // Returns a newly constructed string object 
-
 String operator+(const String& a,const String& b){
 	size_t sizeCountr = a.size() + b.size();
   String newString = String();
