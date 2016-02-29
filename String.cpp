@@ -137,6 +137,47 @@ String& String::operator=(const String& str){
 }
 
 
+// Replaces the content with a copy of s. 
+// If *this and str are the same object, this function has no effect.
+String& String::operator=(const char* s){
+
+//Checks if the string and the char* are not equal 
+	bool equal = true;
+	size_t sizeCountr = 0;
+  for (size_t i = 0 ; s[i] != '\0' ; i++){
+    sizeCountr ++;
+  }
+	if(this->size_ != sizeCountr){
+		equal = false;
+	}
+	else{
+		int i = 0;
+		while(s[i]!= '\0'){
+			if(s[i]!=this->tab_[i]){
+				equal = false;
+			}
+			i++;
+		}
+	}
+
+//If they are not, it replaces the content with a copy of s.
+
+	if(equal==false){
+			size_ = sizeCountr;
+			capacity_ = sizeCountr;
+			delete[] tab_;
+			tab_ = new char[capacity_ + 1];
+			for(size_t i = 0; i<size_; i++){
+				tab_[i] = s[i];
+			}
+		}
+		
+	else{
+		printf("The two strings are already equal.\n"); 
+	}
+	return *this;
+}
+
 // ===========================================================================
 //                                 Destructor
 // ===========================================================================

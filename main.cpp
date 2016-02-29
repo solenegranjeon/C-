@@ -80,7 +80,10 @@ int main() {
   
   C.reserve(42);
   printf("The capacity of C = %d \n",int(C.capacity()));
+  
 
+
+  
   printf("The size of A is %d \n", int(A.size()));
   A = B + 'a';
   printf("The size of A is %d \n", int(A.size()));
@@ -123,6 +126,18 @@ int main() {
   printf("The size of G = %d \n",int(G.size()));
   printf("The capacity of G = %d \n",int(G.capacity()));
   printf("G = '%s' .\n",G.c_str());
+  
+//======================================================================
+//                Testing the operator = (char*)
+//====================================================================== 
+  
+  
+  String H = String("Hello ");
+  const char* ctest = "Hello ";
+  H = ctest;
+  printf("H = '%s' .\n", H.c_str());
+  H = test;
+  printf("H = '%s' .\n", H.c_str());
   
   
   return 0;

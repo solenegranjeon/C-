@@ -19,6 +19,7 @@ class String {
 		String(const char* str);
 		String& operator=(const String&);
 		String& operator=(char);
+		String& operator=(const char*);
 		
 		// =========================================================================
 		//                                Destructor
