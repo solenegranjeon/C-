@@ -23,28 +23,35 @@ int main() {
   //Default constructor
   String A = String();
   
+//======================================================================
+//                    Testing the empty method
+//======================================================================
+
+  //Empty method
   if(A.empty()){
 	  printf("I'm empty \n");
   } else { 
 	  printf("I'm not empty \n");
   }
   
-  //Copy Constructor
-  String B = String(A);
-  
-
 //======================================================================
-//                Testing the Constructor c-string
+//                Testing the Constructor c-string,
+//             the getters (c-str, size and capacity)
 //                And testing the resize method
 //======================================================================
+
+  //Constructor c-string
   String C1 = String("I'm not crazy, my mother had me tested!"
     "I'm not crazy, my mother had me tested!"
     "I'm not crazy, my mother had me tested!");
+  //c-string getter
   printf("C1 = '%s'\n\n",C1.c_str());
   
+  //Resize method
   C1.resize(105);
   
   C1.resize(25);
+  //size getter and capacity
   printf("Resizing to 25 : \n size C1 = %d, capacity C1 = %d"
   "\n\n",int(C1.size()),int(C1.capacity()));
   
@@ -64,15 +71,24 @@ int main() {
   String C = String("I'm not crazy, my mother had me tested!");
   printf("Test of the c-string constructor:  \nC = '%s'.\n\n",C.c_str());
   
+  
 //======================================================================
-//         Testing the length() method and max_size() method
+//                   Testing the Copy Constructor 
+//====================================================================== 
+  String B = String(C);  
+  printf("Copy constructor B (copy of C) = '%s'\n\n",B.c_str());
+  
 //======================================================================
+//           Testing the length() method and max_size() method
+//======================================================================
+
   printf("The length of C = %d.\n",int(C.length()));
-  printf("The max_size_ of C = %d.\n",int(C.max_size()));
+  printf("The max_size_ of C = %d.\n\n",int(C.max_size()));
 
 //======================================================================
-//                Testing the operator = (string) and reserve
+//        Testing the operator = (string) and reserve() method
 //======================================================================
+
 	String D = C ;
 	D = C ;
 
@@ -80,11 +96,12 @@ int main() {
   printf("The capacity of C = %d \n",int(C.capacity()));
   
   C.reserve(42);
-  printf("The capacity of C = %d \n",int(C.capacity()));
+  printf("The capacity of C = %d \n\n",int(C.capacity()));
 
 //======================================================================
 //                Testing the operator = (char c)
-//======================================================================  
+//======================================================================
+  
   C1 = 'a';
   printf("\nAfter operator = 'a', the size of C1 is %d"
   " and C1 = '%s'.\n", int(C1.size()), C1.c_str());
@@ -97,6 +114,7 @@ int main() {
 //======================================================================
 //                Testing the operator + (char*)
 //====================================================================== 
+
   const char* test = "azinga!";
   String C2 = C1 + test;
   
@@ -119,7 +137,7 @@ int main() {
   
   printf("The size of G = %d \n",int(G.size()));
   printf("The capacity of G = %d \n",int(G.capacity()));
-  printf("G = '%s' .\n",G.c_str());
+  printf("G = '%s' .\n\n",G.c_str());
   
 //======================================================================
 //                Testing the operator + (Char)
@@ -133,16 +151,26 @@ int main() {
   printf("Test_So + 'e' = '%s'\n\n",Test_So2.c_str());
   
 //======================================================================
+//                Testing the clear method
+//======================================================================  
+
+  printf("Test_So = '%s'\n",Test_So.c_str());
+  Test_So.clear();
+  printf("After clear method : Test_So = '%s'\n\n",Test_So.c_str());
+
+  
+//======================================================================
 //                Testing the operator = (char*)
 //====================================================================== 
-  
-  
+
   String H = String("Hello ");
   const char* ctest = "Hello ";
   H = ctest;
   printf("H = '%s' .\n", H.c_str());
   H = test;
-  printf("H = '%s' .\n", H.c_str());
+  printf("H = '%s' .\n\n", H.c_str());
+
+  
 
   return 0;
 }
