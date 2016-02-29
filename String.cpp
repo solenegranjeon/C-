@@ -97,9 +97,11 @@ String& String::operator=(char c){
 	return *this;
 }
 
-// Replaces the contents with a copy of str. 
+// Replaces the content with a copy of str. 
 // If *this and str are the same object, this function has no effect.
 String& String::operator=(const String& str){
+	
+	//Checks if the two strings are not already equal
 	
 	bool equal = true;
 	if(this->size_ != str.size_ or this->capacity_ != str.capacity_){
@@ -115,17 +117,22 @@ String& String::operator=(const String& str){
 		}
 	}
 	
+	//If they are not, it replaces the content with a copy of str.
+	
 	if(equal==false){
 		size_ = str.size_;
 		capacity_ = str.capacity_;
-		tab_ = new char[capacity_ + 1];// Careful! did you delete  the old tab_ before? I do not see it
+		delete[] tab_;
+		tab_ = new char[capacity_ + 1];
 		for(size_t i = 0; i<size_; i++){
 			tab_[i] = str.tab_[i];
 		}
 	}
+	
 	else{
 		printf("The two strings are already equal.\n"); 
 	}
+	
 	return *this;
 }
 
@@ -139,7 +146,7 @@ String& String::operator=(const String& str){
 String::~String() {
 	delete [] tab_;
 	tab_ = nullptr;
-	printf("Protocol order 62 executed : String no longer operational. \n");
+	printf("Protocol order 62 executed : String no longer operational.r\n");
 }
 
 // ===========================================================================
@@ -205,7 +212,7 @@ void String::reserve(size_t n){
 			capacity_=n;
 			for(size_t i = 0; i<size_ + 1; i++){
 				tab_[i] = data[i];
-			}
+			} 
 			delete [] data;
 		}
 	} 	
@@ -226,7 +233,7 @@ void String::resize (size_t n){
   }
   else if (n < (size_)){
     size_= n;
-    tab_[size_] = '\0';
+    tab_[size_+1] = '\0';
   }
   else if (n == size_){
     printf("You already have a string with %d "
@@ -259,9 +266,9 @@ void String::resize (size_t n, char c){
 		printf("You aren't allowed to resize your string with more than %d "//to or with?
 		"characters. Try again.\n",int(max_size_));
   }
-  else if (n < (size_-1)){
+  else if (n < (size_)){
     size_= n;
-    tab_[size_] = '\0';
+    tab_[size_+1] = '\0';
   }
   else if (n == size_){
     printf("You already have a string with %d "
@@ -368,9 +375,7 @@ String operator+(const String& slhs,const char* srhs){
     " than %d characters in total. Default string created "
     "\n",int(newString.max_size()));
   }
-  
 	else {
-    
 		newString.reserve(slhs.size() + sizeCountr);
     for(size_t i = 0; i < slhs.size(); i++){
       newString.tab_[i] = slhs.tab_[i];		

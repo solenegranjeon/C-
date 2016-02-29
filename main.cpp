@@ -29,6 +29,7 @@ int main() {
   }
   
   String B = String(A);
+  
 
 //======================================================================
 //                Testing the Constructor c-string
@@ -81,6 +82,17 @@ int main() {
   printf("The capacity of C = %d \n",int(C.capacity()));
   
 
+  String E = String("Hello ");
+  
+  printf("The size of E = %d \n",int(E.size()));
+  printf("The capacity of E = %d \n",int(E.capacity()));
+  
+  String F = String("World");
+  
+  //~ E+F;
+  
+  printf("The size of E = %d \n",int(E.size()));
+  printf("The capacity of E = %d \n",int(E.capacity()));
   
   printf("The size of A is %d \n", int(A.size()));
   A = B + 'a';
