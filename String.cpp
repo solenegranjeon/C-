@@ -229,12 +229,12 @@ void String::reserve(size_t n){
 void String::resize (size_t n){
 
   if (n > max_size_){
-		printf("You aren't allowed to resize your string with more than %d "//to or with?
+		printf("You aren't allowed to resize your string with more than %d "
 		"characters. Try again.\n",int(max_size_));
   }
-  else if (n < (size_)){
+  else if (n < size_){
     size_= n;
-    tab_[size_+1] = '\0';
+    tab_[size_ + 1] = '\0';
   }
   else if (n == size_){
     printf("You already have a string with %d "
@@ -243,7 +243,7 @@ void String::resize (size_t n){
   else {
     this->reserve(n);
     
-    for(size_t i = size_; i < (capacity_); i++){
+    for(size_t i = size_; i < capacity_; i++){
       tab_[i] = '/';
 		}
     size_ = n;
@@ -264,10 +264,10 @@ void String::resize (size_t n){
 void String::resize (size_t n, char c){
 
   if (n > max_size_){
-		printf("You aren't allowed to resize your string with more than %d "//to or with?
+		printf("You aren't allowed to resize your string with more than %d "
 		"characters. Try again.\n",int(max_size_));
   }
-  else if (n < (size_)){
+  else if (n < size_){
     size_= n;
     tab_[size_+1] = '\0';
   }
@@ -278,7 +278,7 @@ void String::resize (size_t n, char c){
   else {
     this->reserve(n);
 
-    for(size_t i = size_; i < (capacity_); i++){
+    for(size_t i = size_; i < capacity_; i++){
       tab_[i] = c;
 		}
     size_ = n;
