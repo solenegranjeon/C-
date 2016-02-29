@@ -146,7 +146,7 @@ String& String::operator=(const String& str){
 String::~String() {
 	delete [] tab_;
 	tab_ = nullptr;
-	printf("Protocol order 62 executed : String no longer operational.r\n");
+	printf("Protocol order 62 executed : String no longer operational.\n");
 }
 
 // ===========================================================================
