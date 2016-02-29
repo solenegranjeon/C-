@@ -120,11 +120,22 @@ int main() {
   " and C1 = '%s'.\n\n", int(C2.size()), C2.c_str());
   
 //======================================================================
-//                Testing the operateur = (string)
+//                Testing the operator + (String)
 //====================================================================== 
   
-	
+  String E = String("Hello ");
+  String F = String("World");
   
+  printf("The size of E = %d \n",int(E.size()));
+  printf("The capacity of E = %d \n",int(E.capacity()));
+  printf("The size of F = %d \n",int(F.size()));
+  printf("The capacity of F = %d \n",int(F.capacity()));
+ 
+  String G = E+F;
+  
+  printf("The size of G = %d \n",int(G.size()));
+  printf("The capacity of G = %d \n",int(G.capacity()));
+  printf("G = '%s' .\n",G.c_str());
   
   
   return 0;

@@ -48,8 +48,8 @@ class String {
 		//                                 Operators
 		// =========================================================================
 		
-		//~ String& operator+(const String& ); //Non il ne faut pas modifier les élements
-    friend String operator+(const String& ,const char* );
+		friend String operator+(const String&, const String& ); 
+		friend String operator+(const String& , const char* );
 		friend String operator+(const String&, char);
 	 
 		// =========================================================================
