@@ -76,9 +76,14 @@ String& String::operator=(char c){
   
 	bool equal = false;
 	if(tab_[0] == c){
+
+    //Checks if the two strings are not already equal
     if (size_ == 1 && capacity_ == 1){
       equal = true;
     }
+    
+//If they are not, it replaces the content with the character.
+
     else{
       this->resize(1);
       capacity_ = 1;

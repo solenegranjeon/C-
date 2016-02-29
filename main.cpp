@@ -20,6 +20,7 @@ int main() {
   
   printf("Hello world !\n");
   
+  //Default constructor
   String A = String();
   
   if(A.empty()){
@@ -28,6 +29,7 @@ int main() {
 	  printf("I'm not empty \n");
   }
   
+  //Copy Constructor
   String B = String(A);
   
 
@@ -35,7 +37,6 @@ int main() {
 //                Testing the Constructor c-string
 //                And testing the resize method
 //======================================================================
-
   String C1 = String("I'm not crazy, my mother had me tested!"
     "I'm not crazy, my mother had me tested!"
     "I'm not crazy, my mother had me tested!");
@@ -126,8 +127,10 @@ int main() {
   
   String Test_So = String("Solèn");
   printf("The size of Test_So is %d \n",int(Test_So.size()));
+  printf("Test_So = '%s'\n",Test_So.c_str());
   String Test_So2 = Test_So + 'e';
-  printf("The size of Test_So2 is %d \n",int(Test_So2.size()));
+  printf("The size of Test_So + 'e' is %d \n",int(Test_So2.size()));
+  printf("Test_So + 'e' = '%s'\n\n",Test_So2.c_str());
   
 //======================================================================
 //                Testing the operator = (char*)
