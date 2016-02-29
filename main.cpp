@@ -80,14 +80,7 @@ int main() {
   
   C.reserve(42);
   printf("The capacity of C = %d \n",int(C.capacity()));
-  
 
-
-  
-  printf("The size of A is %d \n", int(A.size()));
-  A = B + 'a';
-  printf("The size of A is %d \n", int(A.size()));
-  
 //======================================================================
 //                Testing the operator = (char c)
 //======================================================================  
@@ -128,6 +121,15 @@ int main() {
   printf("G = '%s' .\n",G.c_str());
   
 //======================================================================
+//                Testing the operator + (Char)
+//====================================================================== 
+  
+  String Test_So = String("Solèn");
+  printf("The size of Test_So is %d \n",int(Test_So.size()));
+  String Test_So2 = Test_So + 'e';
+  printf("The size of Test_So2 is %d \n",int(Test_So2.size()));
+  
+//======================================================================
 //                Testing the operator = (char*)
 //====================================================================== 
   
@@ -138,7 +140,6 @@ int main() {
   printf("H = '%s' .\n", H.c_str());
   H = test;
   printf("H = '%s' .\n", H.c_str());
-  
-  
+
   return 0;
 }
