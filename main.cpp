@@ -82,17 +82,7 @@ int main() {
   printf("The capacity of C = %d \n",int(C.capacity()));
   
 
-  String E = String("Hello ");
-  
-  printf("The size of E = %d \n",int(E.size()));
-  printf("The capacity of E = %d \n",int(E.capacity()));
-  
-  String F = String("World");
-  
-  //~ E+F;
-  
-  printf("The size of E = %d \n",int(E.size()));
-  printf("The capacity of E = %d \n",int(E.capacity()));
+
   
   printf("The size of A is %d \n", int(A.size()));
   A = B + 'a';
@@ -136,6 +126,18 @@ int main() {
   printf("The size of G = %d \n",int(G.size()));
   printf("The capacity of G = %d \n",int(G.capacity()));
   printf("G = '%s' .\n",G.c_str());
+  
+//======================================================================
+//                Testing the operator = (char*)
+//====================================================================== 
+  
+  
+  String H = String("Hello ");
+  const char* ctest = "Hello ";
+  H = ctest;
+  printf("H = '%s' .\n", H.c_str());
+  H = test;
+  printf("H = '%s' .\n", H.c_str());
   
   
   return 0;
