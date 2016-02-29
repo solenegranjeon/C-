@@ -308,6 +308,7 @@ String operator+(const String& lhs, char rhs){
 
 
 // Concatenating strings
+
 //~ String& String::operator+(const String& str){ // Carefull ! it's false
 //~ 
 	//~ size_t sizeTemp=str.size();
@@ -321,6 +322,35 @@ String operator+(const String& lhs, char rhs){
 	//~ tab_[size_]='\0';
 	//~ return *this;
 //~ }
+
+// Arguments taken : const String& a,const String& b
+// Concatenating strings 
+// Returns a newly constructed string object 
+
+String operator+(const String& a,const String& b){
+	size_t sizeCountr = a.size() + b.size();
+  String newString = String();
+  if (sizeCountr > newString.max_size()){
+    printf("You aren't allowed to concatenate your strings with more"
+    " than %d characters in total. Default string created "
+    "\n",int(newString.max_size()));
+  }
+  else {
+		newString.reserve(sizeCountr);
+    for(size_t i = 0; i < a.size(); i++){
+      newString.tab_[i] = a.tab_[i];	
+    }
+    for(size_t i = a.size(); i<sizeCountr; i++){
+      newString.tab_[i] = b.tab_[i-a.size()];		
+    }
+    newString.size_ = sizeCountr;
+    newString.tab_[newString.size()]='\0';
+	}	
+	return newString;
+		
+  
+	
+}
 
 // Arguments taken : const String& slhs,const char* srhs
 // Concatenating strings 
